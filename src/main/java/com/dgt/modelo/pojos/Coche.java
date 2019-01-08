@@ -66,6 +66,12 @@ public class Coche {
 	}
 
 
+	@Override
+	public String toString() {
+		return "Coche [id=" + id + ", matricula=" + matricula + ", modelo=" + modelo + ", km=" + km + "]";
+	}
+
+
 	
 	
 	

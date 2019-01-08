@@ -84,6 +84,12 @@ public class Multa {
 		this.agente = agente;
 	}
 
+	@Override
+	public String toString() {
+		return "Multa [id=" + id + ", importe=" + importe + ", concepto=" + concepto + ", fecha=" + fecha + ", coche="
+				+ coche + ", agente=" + agente + "]";
+	}
+
 	
 	
 	
