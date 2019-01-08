@@ -57,10 +57,7 @@ public class Agente {
 		this.departamento = departamento;
 	}
 
-	@Override
-	public String toString() {
-		return "Agente [id=" + id + ", nombre=" + nombre + ", placa=" + placa + ", departamento=" + departamento + "]";
-	}
+	
 	
 	
 	

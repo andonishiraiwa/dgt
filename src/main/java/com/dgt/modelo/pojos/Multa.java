@@ -2,8 +2,6 @@ package com.dgt.modelo.pojos;
 
 import java.sql.Date;
 
-import javax.print.attribute.standard.DateTimeAtCompleted;
-
 public class Multa {
 
 	private long id;
@@ -86,11 +84,7 @@ public class Multa {
 		this.agente = agente;
 	}
 
-	@Override
-	public String toString() {
-		return "Multa [id=" + id + ", importe=" + importe + ", concepto=" + concepto + ", fecha=" + fecha + ", coche="
-				+ coche + ", agente=" + agente + "]";
-	}
+	
 	
 	
 	
