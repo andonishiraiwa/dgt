@@ -12,10 +12,10 @@
 
 <!--  boton multar-->
 
-
+<a href="form.jsp"></a> 
 
 
 <!--  boton ver multas-->
-
+<a href="multas.jsp"></a>
 </body>
 </html>
