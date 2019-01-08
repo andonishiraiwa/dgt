@@ -31,7 +31,7 @@ import com.dgt.modelo.pojos.Multa;
 /**
  * Servlet implementation class MultaController
  */
-@WebServlet("/MultaController")
+@WebServlet("/multa")
 public class MultaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private final static Logger LOG = Logger.getLogger(MultaController.class);
@@ -39,7 +39,7 @@ public class MultaController extends HttpServlet {
 	private ValidatorFactory factory;
 	private Validator validator;
 	
-	private static final String VIEW_INDEX = "index.jsp";
+	private static final String VIEW_MULTAS = "multas.jsp";
 	private static final String VIEW_FORM = "form.jsp";
 	private String vista;
 	
@@ -83,14 +83,12 @@ public class MultaController extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doProcess(request, response);
 	}
-//Pasar datos de multa por parametros (procesarlas con DAO y luego llevarlas al jsp desde aquí)
-	
-	
-	
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		doGet(request, response);
+		doProcess(request, response);
 	}
 	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
@@ -99,7 +97,7 @@ public class MultaController extends HttpServlet {
 		
 		//switch
 
-		vista = VIEW_INDEX;
+		vista = VIEW_MULTAS;
 //		alerta = null;
 		try {
 			// recoger parametros
@@ -171,6 +169,10 @@ public class MultaController extends HttpServlet {
 			  vista = VIEW_FORM; 
 			  // volver al formulario, cuidado que no se pierdan los valores en el form
 			  request.setAttribute("multa", m);	
+			 
+		 
+			  
+			  
 			  
 			}else {									  //  validacion correcta
 			

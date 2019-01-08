@@ -1,4 +1,10 @@
+<%@ include file="../includes/header.jsp"  %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <link rel="stylesheet" type="text/css" href="mystyle.css">
+
+${multa} 
+
 <table id="example" class="display" style="width:100%">
         <thead>
             <tr>
