@@ -19,6 +19,7 @@ public class MultaDAO {
 	
 	private static final String SQL_GETBYIDMULTA = "SELECT m.id AS 'id_multa', a.id AS 'id_agente', c.id AS 'id_coche', importe, concepto, fecha, a.nombre, matricula FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id AND m.id = ?;";
 	private static final String SQL_GETMULTA = "SELECT m.id AS 'id_multa', a.id AS 'id_agente', c.id AS 'id_coche', importe, concepto, fecha, a.nombre, matricula FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id ORDER BY m.id DESC LIMIT 1000;";
+	private static final String SQL_INSERTMULTA = "INSERT INTO multa (importe, concepto, id_agente, id_coche) VALUES( ?, ?, ?, ?);";
 	public MultaDAO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -74,6 +75,26 @@ public class MultaDAO {
 		}
 		
 		return multas;
+	}
+	
+	public boolean insert(Multa m) throws SQLException {
+
+		boolean resul = false;
+
+		try (Connection conn = ConnectionManager.getConnection();
+				PreparedStatement pst = conn.prepareStatement(SQL_INSERTMULTA);) {
+
+			pst.setFloat(1, m.getImporte());
+			pst.setString(2, m.getConcepto());
+			pst.setLong(3, m.getAgente().getId());
+			pst.setLong(4, m.getCoche().getId());
+			int affectedRows = pst.executeUpdate();
+			if (affectedRows == 1) {
+				resul = true;
+			}
+
+		}
+		return resul;
 	}
 	
 
