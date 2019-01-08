@@ -23,7 +23,7 @@
 	  </c:if>   
       
      <label for="matricula" class="sr-only"></label>
-      <input type="text" name="matricula" class="form-control" placeholder="0000-XYZ" required autofocus>
+      <input type="text" name="matricula" class="form-control" placeholder="0000XYZ" required autofocus>
 </form>      
 </div>
 
