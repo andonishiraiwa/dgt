@@ -18,7 +18,7 @@ public class MultaDAO {
 	private static MultaDAO INSTANCE = null;
 	
 	private static final String SQL_GETBYIDMULTA = "SELECT m.id AS 'id_multa', a.id AS 'id_agente', c.id AS 'id_coche', importe, concepto, fecha, a.nombre, matricula FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id AND m.id = ?;";
-	private static final String SQL_GETMULTA = "SELECT m.id AS 'id_multa', a.id AS 'id_agente', c.id AS 'id_coche', importe, concepto, fecha, a.nombre, matricula FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id ORDER BY m.id DESC LIMIT 1000;;";
+	private static final String SQL_GETMULTA = "SELECT m.id AS 'id_multa', a.id AS 'id_agente', c.id AS 'id_coche', importe, concepto, fecha, a.nombre, matricula FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id ORDER BY m.id DESC LIMIT 1000;";
 	public MultaDAO() {
 		super();
 		// TODO Auto-generated constructor stub
