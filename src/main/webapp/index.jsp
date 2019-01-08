@@ -7,6 +7,15 @@
 <title>Hola</title>
 </head>
 <body>
-<h1>Hola!!!!!</h1>
+<h1>Bienvenido usuario</h1>
+
+
+<!--  boton multar-->
+
+
+
+
+<!--  boton ver multas-->
+
 </body>
 </html>
