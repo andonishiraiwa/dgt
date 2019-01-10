@@ -60,6 +60,11 @@ public class MultaController extends HttpServlet {
 	private String id_agente;
 	private String id_coche;
 	
+	private String matricula;
+	
+	
+	
+	
 	
     private static MultaDAO daoMulta = null;   
       
@@ -225,6 +230,8 @@ public class MultaController extends HttpServlet {
 			 importe = request.getParameter("importe");
 			 concepto = request.getParameter("concepto");
 			 fecha = request.getParameter("fecha");
+			 
+			 matricula = request.getParameter("matricula");
 		
 //			 private long id;
 //				private float importe;

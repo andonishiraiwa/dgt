@@ -27,14 +27,14 @@
 
 
 <!--  boton ver multas-->
-<a href="multas.jsp"></a>
+
 			
 			<h1>Bienvenido Agente</h1>
 			<br/><br/>
 			
 			<button type="button" class="btn-lg btn-danger btn-block">Multar</button><br/><br/>
 			
-			<button type="button" class="btn-lg btn-success btn-block">Ver multas</button>
+			<a href="multa" class="btn-lg btn-success btn-block text-center">Ver multas</a>
 	 </div>
 	</main>			
 
