@@ -2,8 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link rel="stylesheet" type="text/css" href="mystyle.css">
-<main role="main" class="container">
-${multa}
+<main role="main" class="container"> ${multa}
 
 <table class="table table-striped">
 	<thead>
@@ -33,7 +32,7 @@ ${multa}
 
 	</tbody>
 
-</main>
+	</main>
 
 
 
@@ -48,4 +47,3 @@ ${multa}
 </table>
 </body>
 </html>
-
