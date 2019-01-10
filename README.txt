@@ -1,6 +1,6 @@
 # letrakApp
 
-![Alt text](https://github.com/andonishiraiwa/dgt/captura.png)
+![Alt text](https://github.com/andonishiraiwa/dgt/Captura.PNG)
 
 Sencilla app para la gestion de multas y la creaci�n de las mismas.
 
