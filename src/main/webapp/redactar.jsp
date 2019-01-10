@@ -11,7 +11,7 @@
 	<br />
 	<br />
 
-	<h1>Busqueda de auto</h1>
+	<h1>Especifique los detalles de la multa para ${matricula}</h1>
 
 
 
@@ -22,8 +22,8 @@
 				role="alert">${mensaje}</div>
 		</c:if>
 
-		<label for="matricula" class="sr-only"></label> <input type="text"
-			name="matricula" class="form-control" placeholder="0000XYZ" required
+		<label for="importe" class="sr-only"></label> <input type="text"
+			name="importe" class="form-control" placeholder="cantidad en euros" required
 			autofocus> <br />
 		<br />
 		<button type="button" class="btn-lg btn-info ">Buscar</button>
