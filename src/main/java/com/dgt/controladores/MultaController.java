@@ -132,7 +132,7 @@ public class MultaController extends HttpServlet {
 
 		private void listar(HttpServletRequest request) {
 			
-			request.setAttribute("multas", daoMulta.getMulta());		
+			request.setAttribute("multa", daoMulta.getMulta());		
 			
 		}
 
@@ -208,8 +208,8 @@ public class MultaController extends HttpServlet {
 			if ( identificador > 0 ) {			
 				m = daoMulta.getById(identificador);
 			}
-			request.setAttribute("video", m);
-			request.setAttribute("usuarios", daoMulta.getMulta() );
+			//request.setAttribute("video", m);
+			request.setAttribute("multa", daoMulta.getMulta() );
 			
 					
 		}
