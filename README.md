@@ -2,42 +2,44 @@
 
 ## Introduccion
 
-App para la gestion de multas y la creacion de las mismas.
+App para la gestion de multas para uso de Agente de tráfico.
+
+### Funciones:
+* Listado de Multas.
+* Busqueda por matrícula
+* Inserción, anulación y modificación de un registro
+
 
 ## Desarollo
+En esta app se ha desarollado en un proyecto **Maven 3.1** con la tecnología de **Java Enterprise Edition 1.8** empleado tanto para definir los controladores que manejarán las acciones del usuario como la vista mediante ficheros **JSP** para mostrar los resultados con un formato correcto.
 
-En esta app se ha empleado la tecnología de **Java Enterprise Edition** tanto para definir los controladores que manejarán las acciones del usuario como la vista mediante ficheros **JSP** para mostrar los resultados con el formato correcto.
+### Bases de Datos
 
-Multapp trabaja con Bases de Datos diseñadas en **MySQL** con el fin de asegurar la integridad de los registros. 
+Multapp trabaja con Bases de Datos diseñadas en **MySQL InnoBD** con el fin de asegurar la integridad de los registros.
+
+**dgt.sql**: Se encuentra en la carpeta *SQL* en la rama del proyecto. Contiene el script que genera la base de datos y su contenido.
+
+**database.properties**: archivo con los datos necesarios para la conexion con la BBDD. Están hubicados en la carpeta *resources* del proyecto.
+
+
+El siguiente esquema representa la BBDD:
+
+[diagrama E/R]
 
 
 ## Diseño 
-La app cuenta con un diseño responsive que se adapta a los últimos estandares en lo que se refiere a tamaño de pantalla:
- - [x] Móvil
- - [x] Tablet
- - [x] PC
-  
-  A continuación mostramos las vistas tanto para PC como Movil:
+La app cuenta con un diseño responsive que se adapta a todos los dispositivos móviles en lo referente a dimensión de pantalla:
+ 
+  A continuación mostramos unos ejemplos de la vista:
   
  ### Página Principal
-![Alt text](https://github.com/andonishiraiwa/dgt/blob/master/duo1.png)
+ <img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/index.png" width="250" height="500">
+  
+ ### Listado y gestión de Multas
+<img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/buscar.png" width="250" height="500"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/redactar.png" width="250" height="500"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/lista.png" width="250" height="500"> 
 
- ### Listado de Multas
- ![Alt text](https://github.com/andonishiraiwa/dgt/blob/master/duo2.png)
-
-
-### Instrucciones de Multapp
  
- ## Inicio
- 
- ## Consultar lista de multas
- 
- ## Redactar una multa
- 
- ## Añadiendo una multa
- 
- ## Anulando una multa
  
 
 ## Desarrolladores
-App desarollada por andonishiraiwa y Xabage en colaboración con el Centro de Formación Ipartek
+App desarollada por **andonishiraiwa** y **Xabage** en colaboración con el **Centro de Formación Ipartek**
