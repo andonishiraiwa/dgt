@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -18,6 +19,7 @@ import javax.validation.ValidatorFactory;
 
 import org.apache.log4j.Logger;
 
+import com.dgt.modelo.daos.AgenteDAO;
 import com.dgt.modelo.daos.MultaDAO;
 import com.dgt.modelo.pojos.Agente;
 import com.dgt.modelo.pojos.Alerta;
@@ -69,13 +71,15 @@ public class MultaController extends HttpServlet {
 	
 	
     private static MultaDAO daoMulta = null;   
-      
+    private static AgenteDAO daoAgente = null;
+    Agente a = null;  
     
 	
     @Override
     public void init(ServletConfig config) throws ServletException {    
     	super.init(config);
     	daoMulta = MultaDAO.getInstance();
+    	daoAgente = AgenteDAO.getInstance();
     	
     	factory  = Validation.buildDefaultValidatorFactory();
     	validator  = factory.getValidator();
@@ -91,6 +95,7 @@ public class MultaController extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -100,6 +105,11 @@ public class MultaController extends HttpServlet {
 	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		//procesor para multas: listar, añadir
+		
+		HttpSession session = request.getSession();
+		a = daoAgente.getById(4);
+		session.setAttribute("agenteLogueado", a);
+		
 		
 		
 		//switch

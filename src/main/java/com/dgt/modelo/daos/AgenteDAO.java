@@ -12,7 +12,7 @@ public class AgenteDAO {
 	
 	private static AgenteDAO INSTANCE = null;
 	
-	private static final String SQL_GETBYIDAGENTE = "SELECT nombre FROM dgt.agente WHERE id = 4;";
+	private static final String SQL_GETBYIDAGENTE = "SELECT nombre FROM dgt.agente WHERE id = ?;";
 
 	public AgenteDAO() {
 		super();
@@ -26,20 +26,38 @@ public class AgenteDAO {
 		}
 		return INSTANCE;
 	}
-
-	public Agente getById(long id) {
-
-		Agente a = null;
-
+	
+	public Agente getByUser(Agente a) {
 		try (Connection conn = ConnectionManager.getConnection();
 				PreparedStatement pst = conn.prepareStatement(SQL_GETBYIDAGENTE);) {
-			pst.setLong(1, id);
+			pst.setLong(1, a.getId());
 
 			try (ResultSet rs = pst.executeQuery()) {
 				while (rs.next()) {
 					a = rowMapper(rs);
 				}
 			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return a;
+	}
+
+	public Agente getById(long id) {
+
+		Agente a = null;
+		String sql = SQL_GETBYIDAGENTE;
+		try (Connection conn = ConnectionManager.getConnection(); PreparedStatement pst = conn.prepareStatement(sql);) {
+
+			pst.setLong(1, id);
+
+			try (ResultSet rs = pst.executeQuery()) {
+
+				while (rs.next()) {
+					a = rowMapper(rs);
+				}
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
