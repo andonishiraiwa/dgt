@@ -21,7 +21,7 @@ La app cuenta con un diseño responsive que se adapta a los últimos estandares 
   
  ### Página Principal
   ### Listado y gestión de Multas
-<img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/index.png" width="187" height="350"> <img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/index.png" width="187" height="350"> <img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/index.png" width="187" height="350"> 
+<img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/form.png" width="187" height="350"> <img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/redactar.png" width="187" height="350"> <img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/listar.png" width="187" height="350"> 
 
 
 ### Instrucciones de Multapp
