@@ -12,7 +12,7 @@ public class AgenteDAO {
 	
 	private static AgenteDAO INSTANCE = null;
 	
-	private static final String SQL_GETBYIDAGENTE = "SELECT nombre FROM dgt.agente WHERE id = ?;";
+	private static final String SQL_GETBYIDAGENTE = "SELECT id, nombre FROM dgt.agente WHERE id = ?;";
 
 	public AgenteDAO() {
 		super();

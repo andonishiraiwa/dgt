@@ -16,7 +16,7 @@
 			<!-- agente -->
 		</span></li>
 	</ul>
-	
+	<h3>${agenteLogueado.nombre}</h3>
 	
 	<br /> <br />
 	

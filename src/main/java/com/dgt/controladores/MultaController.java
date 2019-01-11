@@ -68,21 +68,23 @@ public class MultaController extends HttpServlet {
 	private String nombre;
 	private Alerta mensaje;
 	Coche c = null;
+	Agente a = null;
+	HttpSession session;
 	
 	
 	
     private static MultaDAO daoMulta = null;   
-    private static AgenteDAO daoAgente = null;
+    
     private static CocheDAO daoCoche = null;
     
-    Agente a = null;  
+     
     
 	
     @Override
     public void init(ServletConfig config) throws ServletException {    
     	super.init(config);
     	daoMulta = MultaDAO.getInstance();
-    	daoAgente = AgenteDAO.getInstance();
+    	
     	daoCoche = CocheDAO.getInstance();
     	
     	factory  = Validation.buildDefaultValidatorFactory();
@@ -110,9 +112,7 @@ public class MultaController extends HttpServlet {
 	
 		//procesor para multas: listar, añadir
 		
-		HttpSession session = request.getSession();
-		a = daoAgente.getById(4);
-		session.setAttribute("agenteLogueado", a);
+		
 		
 		
 		
@@ -272,6 +272,9 @@ public class MultaController extends HttpServlet {
 					
 		}
 		private void getParametros(HttpServletRequest request) {
+			
+			session = request.getSession();
+			a = (Agente) session.getAttribute("agenteLogueado");
 
 			op = request.getParameter("op");
 			if( op == null ) {
