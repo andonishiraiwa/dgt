@@ -20,10 +20,10 @@ La app cuenta con un diseño responsive que se adapta a los últimos estandares 
   A continuación mostramos las vistas tanto para PC como Movil:
   
  ### Página Principal
-![Alt text](https://github.com/andonishiraiwa/dgt/tree/master/src/main/webapp/images/readme/index.png)
+![Alt text](https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/index.png)
 
  ### Listado de Multas
- ![Alt text](https://github.com/andonishiraiwa/dgt/tree/master/src/main/webapp/images/readme/lista.png)
+ ![Alt text](https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/index.png)
 
 
 ### Instrucciones de Multapp
