@@ -2,7 +2,7 @@
 
 ## Introduccion
 
-App para la gestion de multas y la creacion de las mismas por parte de un Agente de tráfico.
+App para la gestion de multas para uso de Agente de tráfico.
 
 ### Funciones:
 * Listado de Multas.
