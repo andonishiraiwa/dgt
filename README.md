@@ -33,13 +33,13 @@ La app cuenta con un diseño responsive que se adapta a todos los dispositivos m
   A continuación mostramos unos ejemplos de la vista:
   
  ### Página Principal
- <img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/index.png" width="175" height="350">
+ <img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/index.png" width="250" height="500">
   
  ### Listado y gestión de Multas
  
 <table>
 <tr>
-<td width="20%"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/buscar.png" width="250" height="500"></td><td width="20%"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/redactar.png" width="250" height="500"></td></td width="20%"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/lista.png" width="250" height="500"></td>
+<td width="20%"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/buscar.png" width="175" height="350"></td><td width="20%"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/redactar.png" width="175" height="350"></td></td width="20%"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/lista.png" width="175" height="350"></td>
 
  </tr>
  
