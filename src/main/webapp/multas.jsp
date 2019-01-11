@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link rel="stylesheet" type="text/css" href="mystyle.css">
-<main role="main" class="container"> ${multa}
+<main role="main" class="container"> 
 
 <table class="table table-striped">
 	<thead>
@@ -17,16 +17,16 @@
 	</thead>
 
 	<tbody>
-
+<tr>
 		<c:forEach items="${multa}" var="m">
 			<span class="border border-primary">
-
+			<th></th>
 				<td>${m.id}</td>
-				<td>${m.matricula}</td>
+				<td>${m.coche.matricula}</td>
 				<td>${m.fecha}</td>
 
 			</span>
-
+</tr>
 		</c:forEach>
 
 

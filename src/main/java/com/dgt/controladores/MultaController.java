@@ -233,10 +233,7 @@ public class MultaController extends HttpServlet {
 			 
 			 matricula = request.getParameter("matricula");
 		
-//			 private long id;
-//				private float importe;
-//				private String concepto;
-//				private Date fecha;
+
 		}
 
 	}

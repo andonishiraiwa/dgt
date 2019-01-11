@@ -17,8 +17,8 @@ public class MultaDAO {
 	
 	private static MultaDAO INSTANCE = null;
 	
-	private static final String SQL_GETBYIDMULTA = "SELECT m.id AS 'id_multa', a.id AS 'id_agente', c.id AS 'id_coche', importe, concepto, fecha, a.nombre, matricula FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id AND m.id = ?;";
-	private static final String SQL_GETMULTA = "SELECT m.id AS 'id_multa', a.id AS 'id_agente', c.id AS 'id_coche', importe, concepto, fecha, a.nombre, matricula FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id ORDER BY m.id DESC LIMIT 1000;";
+	private static final String SQL_GETBYIDMULTA = "SELECT m.id AS 'id_multa', a.id AS 'id_agente', c.id AS 'id_coche', importe, concepto, fecha, a.nombre FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id AND m.id = ?;";
+	private static final String SQL_GETMULTA = "SELECT m.id , a.id AS 'id_agente', c.id AS 'id_coche', placa, matricula, importe, concepto, fecha, a.nombre as 'agente' FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id ORDER BY m.id DESC LIMIT 1000;";
 	private static final String SQL_INSERTMULTA = "INSERT INTO multa (importe, concepto, id_agente, id_coche) VALUES( ?, ?, ?, ?);";
 	public MultaDAO() {
 		super();
@@ -101,27 +101,28 @@ public class MultaDAO {
 	private Multa rowMapper(ResultSet rs) throws SQLException {
 		
 		Multa m = new Multa();
-		m.setId(rs.getLong("id_multa"));
+		m.setId(rs.getLong("id"));
 		m.setImporte(rs.getFloat("importe"));
 		m.setConcepto(rs.getString("concepto"));
 		m.setFecha(rs.getDate("fecha"));
 		
-		Agente a = new Agente();
-		a.setId(rs.getLong("id_agente"));
-		a.setNombre(rs.getString("nombre"));
-		a.setPlaca(rs.getString("placa"));
-		
-		m.setAgente(a);
-		
-		Coche c = new Coche();
-		c.setId(rs.getLong("id_coche"));
-		c.setMatricula(rs.getString("matricula"));
-		
-		m.setCoche(c);
+Agente a = new Agente();
+a.setId(rs.getLong("id_agente"));
+	a.setNombre(rs.getString("agente"));
+	a.setPlaca(rs.getString("placa"));
+	
+	m.setAgente(a);
+	
+	Coche c = new Coche();
+	c.setId(rs.getLong("id_coche"));
+	c.setMatricula(rs.getString("matricula"));
+	
+	m.setCoche(c);
 		
 		
 		
 		return m;
+		
 	}
 
 }
