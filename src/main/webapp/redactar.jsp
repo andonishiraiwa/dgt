@@ -30,8 +30,8 @@
 			type="text" name="importe" class="form-control"
 			placeholder="cantidad en euros" required autofocus> <br /> <label
 			for="concepto" class="h5">Concepto</label> <br />
-		<textarea name="concepto" class="form-control"></textarea>
-			placeholder="indique el asunto de la multa" required autofocus>
+		<textarea name="concepto" class="form-control" placeholder="indique el asunto de la multa" required autofocus></textarea>
+			
 		<br /> <br />
 		<button type="button" class="btn-lg btn-info ">Registrar</button>
 		<br /> <br />
