@@ -14,7 +14,7 @@
 	<br /> <br />
 
 	<h2>
-		Especifique los detalles de la multa para <span class="text-info">0000XYZ
+		Especifique los detalles de la multa para <span class="text-info">
 			${matricula}</span>
 	</h2>
 
@@ -31,7 +31,7 @@
 			type="text" name="importe" class="form-control"
 			placeholder="cantidad en euros" required autofocus> <br /> <label
 			for="concepto" class="h5">Concepto</label> <br />
-		<input type="text" name="concepto" class="form-control"
+		<textarea name="concepto" class="form-control"></textarea>
 			placeholder="indique el asunto de la multa" required autofocus>
 		<br /> <br />
 		<button type="button" class="btn-lg btn-info ">Registrar</button>

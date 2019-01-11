@@ -20,6 +20,7 @@ import javax.validation.ValidatorFactory;
 import org.apache.log4j.Logger;
 
 import com.dgt.modelo.daos.AgenteDAO;
+import com.dgt.modelo.daos.CocheDAO;
 import com.dgt.modelo.daos.MultaDAO;
 import com.dgt.modelo.pojos.Agente;
 import com.dgt.modelo.pojos.Alerta;
@@ -48,7 +49,7 @@ public class MultaController extends HttpServlet {
 	public static final String OP_LISTAR = "1";
 	public static final String OP_IR_FORMULARIO = "2";
 	public static final String OP_GUARDAR = "3"; // id == -1 insert , id > 0 update
-	
+	public static final String OP_BUSCAR_MATRICULA ="4"; //buscar por matricula
 	
 	private Alerta alerta;
 	
@@ -72,6 +73,8 @@ public class MultaController extends HttpServlet {
 	
     private static MultaDAO daoMulta = null;   
     private static AgenteDAO daoAgente = null;
+    private static CocheDAO daoCoche=null;
+    
     Agente a = null;  
     
 	
@@ -80,6 +83,7 @@ public class MultaController extends HttpServlet {
     	super.init(config);
     	daoMulta = MultaDAO.getInstance();
     	daoAgente = AgenteDAO.getInstance();
+    	daoCoche = CocheDAO.getInstance();
     	
     	factory  = Validation.buildDefaultValidatorFactory();
     	validator  = factory.getValidator();
@@ -127,7 +131,8 @@ public class MultaController extends HttpServlet {
 				case OP_GUARDAR:
 					guardar(request);
 					break;	
-				
+				case OP_BUSCAR_MATRICULA:
+					buscar(request);
 				default:
 					listar(request);
 					break;
@@ -147,6 +152,13 @@ public class MultaController extends HttpServlet {
 		//Interaciones con DAO: Invoke
 		
 
+		private void buscar(HttpServletRequest request) {
+		
+			request.setAttribute("coche", daoCoche.getMatriculas());
+	}
+
+
+
 		private void listar(HttpServletRequest request) {
 			
 			request.setAttribute("multa", daoMulta.getMulta());		
@@ -154,6 +166,8 @@ public class MultaController extends HttpServlet {
 		}
 
 
+		
+		
 		private void guardar(HttpServletRequest request) {
 
 			//crear video mediante parametros del formulario

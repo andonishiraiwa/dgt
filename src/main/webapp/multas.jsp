@@ -5,7 +5,7 @@
 
 <link rel="stylesheet" type="text/css" href="mystyle.css">
 <main role="main" class="container"> 
-<button type="button" class="btn btn-info ">Atras</button>
+ <a href="index.jsp" class="btn btn-info ">Atras</a>
 <ul class="navbar-nav float-right">
 		<li><span class=" badge-lg badge-light mr-3 text-success h5">Agente
 				Takel Berry <img src="images/placa.png" />
