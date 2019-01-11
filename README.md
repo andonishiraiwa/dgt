@@ -9,7 +9,7 @@ En esta app se ha empleado la tecnología de **Java Enterprise Edition** tanto p
 Multapp trabaja con Bases de Datos diseñadas en **MySQL** con el fin de asegurar la integridad de los registros. 
 
 ### Bases de Datos
-**dgt.sql**: Se encuentra en la carpeta *SQL* en la rama del proyecto. Contiene el script que genera la base de datos y su contenido.
+**dgt.sql**:             Se encuentra en la carpeta *SQL* en la rama del proyecto. Contiene el script que genera la base de datos y su contenido.
 
 **database.properties**: archivo con los datos necesarios para la conexion con la BBDD. Están hubicados en la carpeta *resources* del proyecto.
 
