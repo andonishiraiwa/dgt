@@ -17,10 +17,10 @@ La app cuenta con un diseño responsive que se adapta a los últimos estandares 
   
   A continuación mostramos las vistas tanto para PC como Movil:
   
- ###Página Principal
+ ### Página Principal
 ![Alt text](https://github.com/andonishiraiwa/dgt/blob/master/duo1.png)
 
- ###Listado de Multas
+ ### Listado de Multas
  ![Alt text](https://github.com/andonishiraiwa/dgt/blob/master/duo2.png)
 
 ## Desarrolladores
