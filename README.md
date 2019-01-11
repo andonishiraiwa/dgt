@@ -21,9 +21,9 @@ La app cuenta con un diseño responsive que se adapta a los últimos estandares 
   
  ### Página Principal
 <img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/index.png" width="187" height="333">
-
+<img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/form.png" width="187" height="333">
  ### Listado de Multas
-<img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/index.png" width="187" height="333">
+
 
 
 ### Instrucciones de Multapp
