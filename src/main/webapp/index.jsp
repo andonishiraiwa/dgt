@@ -4,28 +4,27 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Hola</title>
-</head>
+
 <body>
 
 	<main role="main" class="container">
 	<div class="jumbotron">
 
-		<ul class="navbar-nav float-right">
-			<li><span class="badge-lg badge-light mr-3">Agente <!-- agente --></span>
-			</li>
-		</ul>
+	<ul class="navbar-nav float-right">
+		<li><span class=" badge-lg badge-light mr-3 text-success h5">Agente
+				Takel Berry <img src="images/placa.png" />
+			<!-- agente -->
+		</span></li>
+	</ul>
+	
+	
+	<br /> <br />
+	
 
 
 
 
-
-
-		<h1>Bienvenido Agente</h1>
+		<h1>Bienvenido</h1>
 		<br />
 		<br />
 

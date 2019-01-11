@@ -3,6 +3,7 @@
 <main role="main" class="container">
 
 <div class="jumbotron">
+<button type="button" class="btn btn-info ">Atras</button>
 	<ul class="navbar-nav float-right">
 		<li><span class=" badge-lg badge-light mr-3 text-success h5">Agente
 				Takel Berry <img src="images/placa.png" />
@@ -10,7 +11,7 @@
 		</span></li>
 	</ul>
 
-	<button type="button" class="btn btn-info ">Atras</button>
+
 	<br /> <br />
 
 	<h1>Busqueda de auto</h1>

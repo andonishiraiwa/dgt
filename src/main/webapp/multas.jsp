@@ -1,8 +1,21 @@
 <%@ include file="../includes/header.jsp"%>
+<%@ include file="../includes/navbar.jsp"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link rel="stylesheet" type="text/css" href="mystyle.css">
 <main role="main" class="container"> 
+<button type="button" class="btn btn-info ">Atras</button>
+<ul class="navbar-nav float-right">
+		<li><span class=" badge-lg badge-light mr-3 text-success h5">Agente
+				Takel Berry <img src="images/placa.png" />
+			<!-- agente -->
+		</span></li>
+	</ul>
+	
+
+	<br /> <br />
+	
 
 <table class="table table-striped">
 	<thead>
@@ -45,5 +58,4 @@
 		</tr>
 	</tfoot>
 </table>
-</body>
-</html>
+<%@ include file="../includes/footer.jsp"%>
