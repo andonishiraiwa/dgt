@@ -62,6 +62,8 @@ public class MultaController extends HttpServlet {
 	
 	private String matricula;
 	
+	private String nombre;
+	
 	
 	
 	
@@ -232,7 +234,7 @@ public class MultaController extends HttpServlet {
 			 fecha = request.getParameter("fecha");
 			 
 			 matricula = request.getParameter("matricula");
-		
+			 nombre = request.getParameter("nombre");
 
 		}
 
