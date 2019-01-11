@@ -2,7 +2,7 @@
 
 ## Introduccion
 
-App para la gestion de multas y la creacion de las mismas.
+App para la gestion de multas y la creacion de las mismas por parte de un Agente de tráfico.
 
 ## Desarollo
 
@@ -10,14 +10,18 @@ En esta app se ha empleado la tecnología de **Java Enterprise Edition** tanto p
 
 Multapp trabaja con Bases de Datos diseñadas en **MySQL** con el fin de asegurar la integridad de los registros. 
 
+### Bases de Datos
+**dgt.sql**: Se encuentra en la carpeta *SQL* en la rama del proyecto. Contiene el script que genera la base de datos y su contenido.
+**database.properties**: archivo con los datos necesarios para la conexion con la BBDD. Están hubicados en la carpeta *resources* del proyecto.
+
+
+La base de datos tiene la siguente estructura:
 
 ## Diseño 
-La app cuenta con un diseño responsive que se adapta a los últimos estandares en lo que se refiere a tamaño de pantalla:
- - [x] Móvil
- - [x] Tablet
- - [x] PC
+La app cuenta con un diseño responsive que se adapta a todos los dispositivos móviles en lo referente a dimensión de pantalla:
+ 
   
-  A continuación mostramos las vistas tanto para PC como Movil:
+  A continuación mostramos unos ejemplos de la vista:
   
  ### Página Principal
  <img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/index.png" width="250" height="500">
