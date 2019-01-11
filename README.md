@@ -36,10 +36,10 @@ La app cuenta con un diseño responsive que se adapta a todos los dispositivos m
  <img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/index.png" width="250" height="500">
   
  ### Listado y gestión de Multas
- 
+ **width="175" height="350"**
 <table>
 <tr>
-<td width="20%"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/buscar.png" width="175" height="350"></td><td width="20%"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/redactar.png" width="175" height="350"></td></td width="20%"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/lista.png" width="175" height="350"></td>
+<td width="20%"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/buscar.png"></td><td width="20%"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/redactar.png"></td></td width="20%"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/lista.png"></td>
 
  </tr>
  
