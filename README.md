@@ -42,7 +42,9 @@ La app cuenta con un diseño responsive que se adapta a todos los dispositivos m
 	<td width="33%">
 <img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/buscar.png" width="250" height="500"></td><td width="33%"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/redactar.png" width="250" height="500"></td></td width="33%"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/lista.png" width="250" height="500"> </td>
 
+ </tr>
  
+ </table>
  
 
 ## Desarrolladores
