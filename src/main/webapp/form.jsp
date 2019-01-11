@@ -28,7 +28,7 @@
 		<label for="matricula" class="sr-only"></label> <input type="text"
 			name="matricula" class="form-control" placeholder="0000XYZ" required
 			autofocus> <br /> <br />
-		<button type="button" class="btn-lg btn-info ">Buscar</button>
+		<a href="multa?op=4&id=-1" class="btn-lg btn-info ">Buscar</button>
 		<br /> <br />
 	</form>
 </div>

@@ -28,7 +28,7 @@
 		<br />
 		<br />
 
-		<button type="button" class="btn-lg btn-danger btn-block">Multar</button>
+		<a href="form.jsp"  class="btn-lg btn-danger btn-block text-center">Multar</a>
 		<br />
 		<br /> <a href="multa"
 			class="btn-lg btn-success btn-block text-center">Ver multas</a>

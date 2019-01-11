@@ -49,7 +49,7 @@ public class MultaController extends HttpServlet {
 	public static final String OP_LISTAR = "1";
 	public static final String OP_IR_FORMULARIO = "2";
 	public static final String OP_GUARDAR = "3"; // id == -1 insert , id > 0 update
-	public static final String OP_BUSCAR_MATRICULA ="4"; //buscar por matricula
+	public static final String OP_BUSCAR_MATRICULA ="4"; //buscar por matricula, pasarle el parametro de matricula a redactar.jsp
 	
 	private Alerta alerta;
 	
@@ -64,16 +64,16 @@ public class MultaController extends HttpServlet {
 	private String id_coche;
 	
 	private String matricula;
-	
+	private String mat="";
 	private String nombre;
-	
-	
+	private Alerta mensaje;
+	Coche c = null;
 	
 	
 	
     private static MultaDAO daoMulta = null;   
     private static AgenteDAO daoAgente = null;
-    private static CocheDAO daoCoche=null;
+    private static CocheDAO daoCoche = null;
     
     Agente a = null;  
     
@@ -154,8 +154,35 @@ public class MultaController extends HttpServlet {
 
 		private void buscar(HttpServletRequest request) {
 		
-			request.setAttribute("coche", daoCoche.getMatriculas());
-	}
+			
+			//obtener parametro de matricula
+		
+		 c = daoCoche.getByMatri("matricula");
+			if(c != null) {
+				
+				request.setAttribute("coche", c);
+			}
+			
+			try {
+				
+				c=daoCoche.getByMatri(mat);
+				
+				
+				
+			}catch(Exception e){
+				mensaje = new Alerta(mensaje.TIPO_DANGER, "No hemos podido encontrar la matricula");
+				
+			}if (c!=null) {
+				
+				request.setAttribute("coche", c);
+				request.setAttribute("fecha", id);
+			
+				vista = "redactar.jsp";
+				
+				
+			}
+			
+		}
 
 
 
