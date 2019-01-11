@@ -39,7 +39,9 @@ La app cuenta con un diseño responsive que se adapta a todos los dispositivos m
  **width="175" height="350"**
 <table>
 <tr>
-<td width="20%"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/buscar.png"></td><td width="20%"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/redactar.png"></td></td width="20%"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/lista.png"></td>
+<td width="20%"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/buscar.png"></td>
+<td width="20%"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/redactar.png"></td>
+<td width="20%"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/lista.png"></td>
 
  </tr>
  
