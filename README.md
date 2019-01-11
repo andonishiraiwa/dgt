@@ -1,10 +1,8 @@
 # DGT Multapp
 
-## Introduccion
+## Introduccion y Desarollo
 
 App para la gestion de multas y la creacion de las mismas por parte de un Agente de tráfico.
-
-## Desarollo
 
 En esta app se ha empleado la tecnología de **Java Enterprise Edition** tanto para definir los controladores que manejarán las acciones del usuario como la vista mediante ficheros **JSP** para mostrar los resultados con el formato correcto.
 
@@ -12,6 +10,7 @@ Multapp trabaja con Bases de Datos diseñadas en **MySQL** con el fin de asegura
 
 ### Bases de Datos
 **dgt.sql**: Se encuentra en la carpeta *SQL* en la rama del proyecto. Contiene el script que genera la base de datos y su contenido.
+
 **database.properties**: archivo con los datos necesarios para la conexion con la BBDD. Están hubicados en la carpeta *resources* del proyecto.
 
 
