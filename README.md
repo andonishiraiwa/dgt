@@ -23,7 +23,7 @@ Multapp trabaja con Bases de Datos diseñadas en **MySQL InnoBD** con el fin de 
 
 
 El siguiente esquema representa la BBDD:
-
+https://github.com/andonishiraiwa/dgt/blob/master/SQL/multas.png
 [diagrama E/R]
 
 
@@ -36,7 +36,11 @@ La app cuenta con un diseño responsive que se adapta a todos los dispositivos m
  <img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/index.png" width="250" height="500">
   
  ### Listado y gestión de Multas
-<img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/buscar.png" width="250" height="500"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/redactar.png" width="250" height="500"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/lista.png" width="250" height="500"> 
+ 
+<table>
+<tr>
+	<td width="33%">
+<img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/buscar.png" width="250" height="500"></td><td width="33%"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/redactar.png" width="250" height="500"></td></td width="33%"><img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/lista.png" width="250" height="500"> </td>
 
  
  
