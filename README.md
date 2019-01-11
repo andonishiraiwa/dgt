@@ -15,7 +15,7 @@ En esta app se ha desarollado en un proyecto **Maven 3.1** con la tecnología de
 
 ### Bases de Datos
 
-Multapp trabaja con Bases de Datos diseñadas en **MySQL** con el fin de asegurar la integridad de los registros.
+Multapp trabaja con Bases de Datos diseñadas en **MySQL InnoBD** con el fin de asegurar la integridad de los registros.
 
 **dgt.sql**: Se encuentra en la carpeta *SQL* en la rama del proyecto. Contiene el script que genera la base de datos y su contenido.
 
