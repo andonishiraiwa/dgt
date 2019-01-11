@@ -6,9 +6,8 @@
 <link rel="stylesheet" type="text/css" href="mystyle.css">
 <main role="main" class="container"> 
  <a href="index.jsp" class="btn btn-info ">Atras</a>
-<ul class="navbar-nav float-right">
-		<li><span class=" badge-lg badge-light mr-3 text-success h5">Agente
-				Takel Berry <img src="images/placa.png" />
+	<ul class="navbar-nav float-right">
+		<li><span class=" badge-lg badge-light mr-3 text-success h5">${agenteLogueado.nombre}<img src="images/placa.png" />
 			<!-- agente -->
 		</span></li>
 	</ul>
@@ -36,7 +35,7 @@
 			<th></th>
 				<td>${m.id}</td>
 				<td>${m.coche.matricula}</td>
-				<td>${m.fecha}</td>
+				<td>${m.fecha_alta}</td>
 
 			</span>
 </tr>
