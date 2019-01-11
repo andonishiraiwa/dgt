@@ -104,7 +104,9 @@ public class MultaDAO {
 		m.setId(rs.getLong("id"));
 		m.setImporte(rs.getFloat("importe"));
 		m.setConcepto(rs.getString("concepto"));
-		m.setFecha(rs.getDate("fecha"));
+		m.setFecha_alta(rs.getDate("fecha_alta"));
+		m.setFecha_modificacion(rs.getDate("fecha_modificacion"));
+		m.setFecha_baja(rs.getDate("fecha_baja"));
 		
 Agente a = new Agente();
 a.setId(rs.getLong("id_agente"));

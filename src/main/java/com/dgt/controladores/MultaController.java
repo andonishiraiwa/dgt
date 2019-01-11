@@ -59,7 +59,9 @@ public class MultaController extends HttpServlet {
 	private String id;
 	private String importe;
 	private String concepto;
-	private String fecha;
+	private String fecha_alta;
+	private String fecha_modificacion;
+	private String fecha_baja;
 	private String id_agente;
 	private String id_coche;
 	
@@ -175,7 +177,7 @@ public class MultaController extends HttpServlet {
 			}if (c!=null) {
 				
 				request.setAttribute("coche", c);
-				request.setAttribute("fecha", id);
+				request.setAttribute("fecha_alta", id);
 			
 				vista = "redactar.jsp";
 				
@@ -203,7 +205,9 @@ public class MultaController extends HttpServlet {
 			m.setId( (long)identificador);
 			m.setImporte(Float.parseFloat(importe));
 			m.setConcepto(concepto);
-			m.setFecha(Date.valueOf(fecha));
+			m.setFecha_alta(Date.valueOf(fecha_alta));
+			m.setFecha_modificacion(Date.valueOf(fecha_modificacion));
+			m.setFecha_baja(Date.valueOf(fecha_baja));
 			
 			
 			Agente a = new Agente();
@@ -285,7 +289,9 @@ public class MultaController extends HttpServlet {
 			id = request.getParameter("id");
 			 importe = request.getParameter("importe");
 			 concepto = request.getParameter("concepto");
-			 fecha = request.getParameter("fecha");
+			 fecha_alta = request.getParameter("fecha_alta");
+			 fecha_modificacion = request.getParameter("fecha_modificacion");
+			 fecha_baja = request.getParameter("fecha_baja");
 			 
 			 matricula = request.getParameter("matricula");
 			 nombre = request.getParameter("nombre");
