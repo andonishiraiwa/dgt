@@ -2,7 +2,12 @@
 
 ![Alt text](https://github.com/andonishiraiwa/dgt/blob/master/Captura.PNG)
 
-Sencilla app para la gestion de multas y la creaci�n de las mismas.
+App para la gestion de multas y la creacion de las mismas.
 
-## instalar App Android
-[Descargar Aplicaci�n](proximamente...)
+La app cuenta con un diseño responsive que se adapta a los últimos estandares en lo que se refiere a tamaño de pantalla:
+  -Movil
+  -Tablet
+  -PC
+  
+
+
