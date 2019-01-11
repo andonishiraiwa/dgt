@@ -23,8 +23,8 @@ Multapp trabaja con Bases de Datos diseñadas en **MySQL InnoBD** con el fin de 
 
 
 El siguiente esquema representa la BBDD:
-https://github.com/andonishiraiwa/dgt/blob/master/SQL/multas.png
-[diagrama E/R]
+<img src="https://github.com/andonishiraiwa/dgt/blob/master/SQL/multas.png"/>
+
 
 
 ## Diseño 
