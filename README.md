@@ -20,7 +20,7 @@ La app cuenta con un diseño responsive que se adapta a los últimos estandares 
   A continuación mostramos las vistas tanto para PC como Movil:
   
  ### Página Principal
- <img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/index.png" width="250" height="233">
+ <img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/index.png" width="250" height="444">
   ### Listado y gestión de Multas
 <img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/buscar.png" width="187" height="350"> <img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/redactar.png" width="187" height="350"> <img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/lista.png" width="187" height="350"> 
 
