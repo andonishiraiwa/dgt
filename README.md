@@ -12,5 +12,5 @@ La app cuenta con un diseño responsive que se adapta a los últimos estandares 
   
   A continuación mostramos las vistas tanto para PC como Movil:
   
-![Alt text](https://github.com/andonishiraiwa/dgt/blob/master/laptop.png)
+![Alt text](https://github.com/andonishiraiwa/dgt/blob/master/pc y movil1.png)
 
