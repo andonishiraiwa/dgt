@@ -33,7 +33,7 @@ La app cuenta con un diseño responsive que se adapta a todos los dispositivos m
   A continuación mostramos unos ejemplos de la vista:
   
  ### Página Principal
- <img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/index.png" width="250" height="500">
+ <img src="https://github.com/andonishiraiwa/dgt/blob/master/src/main/webapp/images/readme/index.png" width="150" height="300">
   
  ### Listado y gestión de Multas
  
