@@ -14,7 +14,7 @@ public class CocheDAO {
 	private String indetmatricula = "";
 
 	private static final String SQL_GETMATRICULAS = "SELECT id, matricula, modelo, km FROM coche ORDER BY id DESC LIMIT 100;";
-	private static final String SQL_GETMATRICULA = "SELECT * FROM coche WHERE matricula= ? ;";
+	private static final String SQL_GETMATRICULA = "SELECT id, matricula, modelo, km FROM coche WHERE matricula= ? ;";
 
 	// constructor privado, solo acceso por getInstance()
 	private CocheDAO() {
