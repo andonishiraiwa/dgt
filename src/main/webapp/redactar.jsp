@@ -9,7 +9,7 @@
 		</span></li>
 	</ul>
  
-	<button type="button" class="btn btn-info ">Atras</button>
+	<a href="index.jsp" class="btn btn-info ">Atras</a>
 	<br /> <br />
 
 	<h2>
@@ -33,7 +33,7 @@
 		<textarea name="concepto" class="form-control" placeholder="indique el asunto de la multa" required autofocus></textarea>
 			
 		<br /> <br />
-		<button type="button" class="btn-lg btn-info ">Registrar</button>
+		<a href="multa?op=3&id=-1" class="btn-lg btn-info ">Registrar</a>
 		<br /> <br />
 	</form>
 </div>

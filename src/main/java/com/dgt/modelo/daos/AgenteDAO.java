@@ -30,7 +30,7 @@ public class AgenteDAO {
 	public Agente getByUser(Agente a) {
 		try (Connection conn = ConnectionManager.getConnection();
 				PreparedStatement pst = conn.prepareStatement(SQL_GETBYIDAGENTE);) {
-			pst.setLong(1, a.getId());
+			pst.setLong(1, a.getId()); //Donde el parametro 1 sea definido por el obtenido por getId
 
 			try (ResultSet rs = pst.executeQuery()) {
 				while (rs.next()) {

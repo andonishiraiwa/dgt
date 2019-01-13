@@ -1,9 +1,10 @@
 <%@ include file="../includes/header.jsp"%>
 <%@ include file="../includes/navbar.jsp"%>
+<%@ include file="../includes/mensajes.jsp"%>
 <main role="main" class="container">
 
 <div class="jumbotron">
-<button type="button" class="btn btn-info ">Atras</button>
+<a href="index.jsp" class="btn btn-info ">Atras</a>
 	<ul class="navbar-nav float-right">
 		<li><span class=" badge-lg badge-light mr-3 text-success h5">${agenteLogueado.nombre}<img src="images/placa.png" />
 			<!-- agente -->

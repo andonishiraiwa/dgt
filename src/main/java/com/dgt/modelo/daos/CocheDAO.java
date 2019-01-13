@@ -43,7 +43,7 @@ public class CocheDAO {
 		String sql = SQL_GETMATRICULA;
 		try (Connection conn = ConnectionManager.getConnection(); PreparedStatement pst = conn.prepareStatement(sql);) {
 
-			pst.setString(1, mat);
+			pst.setString(1, mat); //donde el parametro matricula sea definido por lo que recoge la variable 'mat'
 
 			try (ResultSet rs = pst.executeQuery()) {
 
@@ -55,7 +55,7 @@ public class CocheDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return c;
+		return c; //Debug dice null
 	}
 	
 	public ArrayList<Coche> getMatriculas() {
