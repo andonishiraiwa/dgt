@@ -44,12 +44,14 @@ public class MultaController extends HttpServlet {
 	
 	private static final String VIEW_MULTAS = "multas.jsp";
 	private static final String VIEW_FORM = "form.jsp";
+	private static final String VIEW_REDACTAR = "redactar.jsp";
 	private String vista;
 	
 	public static final String OP_LISTAR = "1";
 	public static final String OP_IR_FORMULARIO = "2";
 	public static final String OP_GUARDAR = "3"; // id == -1 insert , id > 0 update
 	public static final String OP_BUSCAR_MATRICULA ="4"; //buscar por matricula, pasarle el parametro de matricula a redactar.jsp
+	public static final String OP_ANULAR = "5";
 	
 	private Alerta alerta;
 	
@@ -72,7 +74,7 @@ public class MultaController extends HttpServlet {
 	Coche c = null;
 	Agente a = null;
 	HttpSession session;
-	
+	String multado;
 	
 	
     private static MultaDAO daoMulta = null;   
@@ -135,6 +137,10 @@ public class MultaController extends HttpServlet {
 					break;	
 				case OP_BUSCAR_MATRICULA:
 					buscar(request);
+					break;
+				case OP_ANULAR:
+					anular(request);
+					break;
 				default:
 					listar(request);
 					break;
@@ -151,6 +157,10 @@ public class MultaController extends HttpServlet {
 			request.getRequestDispatcher(vista).forward(request, response);
 		}	
 	}
+		
+
+
+
 		//Interaciones con DAO: Invoke
 		
 
@@ -158,16 +168,18 @@ public class MultaController extends HttpServlet {
 		
 			
 			//obtener parametro de matricula
-		
-		 c = daoCoche.getByMatri("matricula");
+		/*		c = daoCoche.getByMatri(matricula);
+				
 			if(c != null) {
 				
 				request.setAttribute("coche", c);
-			}
+				request.setAttribute("fecha", new Date());
+				vista = VIEW_FORM;
+			}*/
 			
 			try {
 				
-				c=daoCoche.getByMatri(mat);
+				c = daoCoche.getByMatri(matricula);
 				
 				
 				
@@ -179,11 +191,13 @@ public class MultaController extends HttpServlet {
 				request.setAttribute("coche", c);
 				request.setAttribute("fecha_alta", id);
 			
-				vista = "redactar.jsp";
+				vista = VIEW_REDACTAR;
 				
 				
+			}else {
+				mensaje = new Alerta(mensaje.TIPO_DANGER, "La matrícula no existe");
+				vista = VIEW_FORM;
 			}
-			
 		}
 
 
@@ -261,6 +275,19 @@ public class MultaController extends HttpServlet {
 			
 		}
 		
+		
+		private void anular(HttpServletRequest request) {
+			try {
+				request.setAttribute("multa", daoMulta.update(daoMulta.getById(Long.parseLong(multado))));
+				op = "ver";
+				op = "baja";
+				vista = VIEW_MULTAS;
+			} catch (SQLException e) {
+				LOG.error("No se puede anular la multa", e);
+			}
+		}
+		
+	
 		private void irFormulario(HttpServletRequest request) {
 			
 			vista = VIEW_FORM; 
@@ -295,6 +322,8 @@ public class MultaController extends HttpServlet {
 			 
 			 matricula = request.getParameter("matricula");
 			 nombre = request.getParameter("nombre");
+			 
+			 multado = request.getParameter("multa");
 
 		}
 
