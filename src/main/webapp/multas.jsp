@@ -68,7 +68,15 @@
 			<th></th>
 			<th>Id</th>
 			<th>Matricula</th>
-			<th>Fecha</th>
+			<c:choose>
+				<c:when test="${op != 'baja'}">
+					<th>Fecha de alta</th>
+				</c:when>
+				<c:otherwise>
+					<th>Fecha de alta</th>
+					<th>Fecha de baja</th>
+				</c:otherwise>
+			</c:choose>
 		</tr>
 	</tfoot>
 </table>
