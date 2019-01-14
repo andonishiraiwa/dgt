@@ -18,6 +18,8 @@
 <br />
 
 
+<!-- El elemento de la tabla donde hay que situar el boton verde/rojo <td class=" details-control bg-info"></td> -->
+
 <table id="table_id" data-page-length='25'
 	class="table tablaOrdenable display">
 	<thead>
