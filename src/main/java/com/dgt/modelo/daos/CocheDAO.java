@@ -11,6 +11,7 @@ import com.dgt.modelo.pojos.Coche;
 public class CocheDAO {
 
 	private static CocheDAO INSTANCE = null;
+	@SuppressWarnings("unused")
 	private String indetmatricula = "";
 
 	private static final String SQL_GETMATRICULAS = "SELECT id, matricula, modelo, km FROM coche ORDER BY id DESC LIMIT 100;";

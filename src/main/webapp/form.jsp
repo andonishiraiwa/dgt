@@ -24,14 +24,11 @@
 				role="alert">${mensaje}</div>
 		</c:if>
 
-		<label for="matricula" class="sr-only"></label> 
-		<input type="text"
+		<label for="matricula" class="sr-only"></label> <input type="text"
 			name="matricula" class="form-control" placeholder="0000XYZ" required
-			autofocus> <br /> <br /> 
-			
-		<input  type="hidden" name="op" value="4">	
-
-		<input type="submit" class="btn btn-info"  value="Buscar">
+			autofocus> <br /> <br /> <input type="hidden" name="op"
+			value="4"> <input type="submit" class="btn btn-info"
+			value="Buscar">
 	</form>
 </div>
 

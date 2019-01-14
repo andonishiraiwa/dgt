@@ -19,7 +19,7 @@ import javax.validation.ValidatorFactory;
 
 import org.apache.log4j.Logger;
 
-import com.dgt.modelo.daos.AgenteDAO;
+//import com.dgt.modelo.daos.AgenteDAO;
 import com.dgt.modelo.daos.CocheDAO;
 import com.dgt.modelo.daos.MultaDAO;
 import com.dgt.modelo.pojos.Agente;
@@ -61,13 +61,18 @@ public class MultaController extends HttpServlet {
 	private String id;
 	private String importe;
 	private String concepto;
+	@SuppressWarnings("unused")
 	private String fecha_alta;
+	@SuppressWarnings("unused")
 	private String fecha_modificacion;
+	@SuppressWarnings("unused")
 	private String fecha_baja;
+	@SuppressWarnings("unused")
 	private String id_agente = "";
 	private String id_coche = "";
 
 	String matricula = "";
+	@SuppressWarnings("unused")
 	private String nombre;
 	private Alerta mensaje;
 	Coche c = null;
@@ -75,7 +80,6 @@ public class MultaController extends HttpServlet {
 	Multa m = null;
 	HttpSession session;
 	String multado;
-	
 
 	private static MultaDAO daoMulta = null;
 
@@ -153,6 +157,7 @@ public class MultaController extends HttpServlet {
 
 	// Interaciones con DAO: Invoke
 
+	@SuppressWarnings("static-access")
 	private void buscar(HttpServletRequest request) {
 
 		// obtener parametro de matricula
@@ -219,7 +224,6 @@ public class MultaController extends HttpServlet {
 			try {
 				if (daoMulta.insert(m)) {
 
-
 					alerta = new Alerta(Alerta.TIPO_SUCCESS, "Multa guardada con exito");
 					id = null;
 					listar(request);
@@ -250,6 +254,7 @@ public class MultaController extends HttpServlet {
 	private void irFormulario(HttpServletRequest request) {
 
 		vista = VIEW_FORM;
+		@SuppressWarnings("unused")
 		Multa m = new Multa();
 
 		int identificador = Integer.parseInt(id);

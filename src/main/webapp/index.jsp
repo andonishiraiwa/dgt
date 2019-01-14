@@ -9,28 +9,25 @@
 
 	<main role="main" class="container">
 	<div class="jumbotron">
- 
-	<ul class="navbar-nav float-right">
-		<li><span class=" badge-lg badge-light mr-3 text-success h5">${agenteLogueado.nombre}<img src="images/placa.png" />
-			<!-- agente -->
-		</span></li>
-	</ul>
-	<%-- <h3>${agenteLogueado.nombre}</h3> --%>
-	
-	<br /> <br />
-	
+
+		<ul class="navbar-nav float-right">
+			<li><span class=" badge-lg badge-light mr-3 text-success h5">${agenteLogueado.nombre}<img
+					src="images/placa.png" /> <!-- agente -->
+			</span></li>
+		</ul>
+		<%-- <h3>${agenteLogueado.nombre}</h3> --%>
+
+		<br /> <br />
+
 
 
 
 
 		<h1>Bienvenido</h1>
-		<br />
-		<br />
-
-		<a href="form.jsp"  class="btn-lg btn-danger btn-block text-center">Multar</a>
-		<br />
-		<br /> <a href="multa"
-			class="btn-lg btn-success btn-block text-center">Ver multas</a>
+		<br /> <br /> <a href="form.jsp"
+			class="btn-lg btn-danger btn-block text-center">Multar</a> <br /> <br />
+		<a href="multa" class="btn-lg btn-success btn-block text-center">Ver
+			multas</a>
 	</div>
 	</main>
 

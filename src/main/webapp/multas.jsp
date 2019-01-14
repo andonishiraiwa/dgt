@@ -18,7 +18,8 @@
 <br />
 
 
-<table id="table_id" data-page-length='25' class="table tablaOrdenable display">
+<table id="table_id" data-page-length='25'
+	class="table tablaOrdenable display">
 	<thead>
 		<tr>
 			<th></th>
@@ -32,7 +33,10 @@
 				<c:otherwise>
 					<th>Fecha de alta</th>
 					<th>Fecha de baja</th>
-					<th class="dt-body-right sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 0px; display: none;" aria-label="Salary: activate to sort column ascending">Salary</th>
+					<th class="dt-body-right sorting" tabindex="0"
+						aria-controls="example" rowspan="1" colspan="1"
+						style="width: 0px; display: none;"
+						aria-label="Salary: activate to sort column ascending">Salary</th>
 				</c:otherwise>
 			</c:choose>
 
@@ -48,10 +52,11 @@
 				<td>${m.id}</td>
 				<td>${m.coche.matricula}</td>
 				<td>${m.fecha_alta}</td>
-				<c:if test="${op == 'baja'}"> <!-- condicion, actúa o no actúa -->
-						<td>${m.fechaBaja}</td>
-						<td id="tablaOrdenable" style="display: none;">$162,700</td>
-					</c:if>
+				<c:if test="${op == 'baja'}">
+					<!-- condicion, actúa o no actúa -->
+					<td>${m.fechaBaja}</td>
+					<td id="tablaOrdenable" style="display: none;">$162,700</td>
+				</c:if>
 				<%-- <td>${m.fecha_baja}</td> --%>
 
 				<!-- </span> -->
@@ -80,6 +85,12 @@
 				</c:otherwise>
 			</c:choose>
 		</tr>
+		
+		<%-- <tr>
+		<td>${m.id}</td>
+				<td>${m.coche.matricula}</td>
+				<td>${m.fecha_alta}</td>
+		</tr> --%>
 	</tfoot>
 </table>
 
@@ -87,25 +98,25 @@
 
 <!-- https://datatables.net/examples/api/row_details.html -->
 
-<table id="example" class="display" style="width:100%">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Salary</th>
-            </tr>
-        </thead>
-        <tfoot>
-            <tr>
-                <th></th>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Salary</th>
-            </tr>
-        </tfoot>
-    </table>
+<table id="example" class="display" style="width: 100%">
+	<thead>
+		<tr>
+			<th></th>
+			<th>Name</th>
+			<th>Position</th>
+			<th>Office</th>
+			<th>Salary</th>
+		</tr>
+	</thead>
+	<tfoot>
+		<tr>
+			<th></th>
+			<th>Name</th>
+			<th>Position</th>
+			<th>Office</th>
+			<th>Salary</th>
+		</tr>
+	</tfoot>
+</table>
 
 <%@ include file="../includes/footer.jsp"%>
