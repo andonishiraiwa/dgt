@@ -31,7 +31,7 @@
 			
 		<input  type="hidden" name="op" value="4">	
 
-		<input type="submit"  value="Buscar">
+		<input type="submit" class="btn btn-info"  value="Buscar">
 	</form>
 </div>
 
