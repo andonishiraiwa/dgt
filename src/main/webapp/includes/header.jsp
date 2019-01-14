@@ -30,8 +30,8 @@
      <!-- datatables -->
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
   
-  
-    <link href="../css/estilos.css" rel="stylesheet" type="text/css">
+ 
+    <link rel="stylesheet" href="../css/estilos.css">
     
   </head>
 
