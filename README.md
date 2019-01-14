@@ -50,4 +50,4 @@ La app cuenta con un diseño responsive que se adapta a todos los dispositivos m
  
 
 ## Desarrolladores
-App desarollada por **andonishiraiwa** y **Xabage** en colaboración con el **Centro de Formación Ipartek**
+App desarollada por **andonishiraiwa** y **Xabage**
