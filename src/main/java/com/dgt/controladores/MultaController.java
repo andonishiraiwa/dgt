@@ -67,14 +67,14 @@ public class MultaController extends HttpServlet {
 	private String id_agente;
 	private String id_coche;
 	
-	private String matricula;
-	private String mat="";
+	String matricula = "";
 	private String nombre;
 	private Alerta mensaje;
 	Coche c = null;
 	Agente a = null;
 	HttpSession session;
 	String multado;
+	
 	
 	
     private static MultaDAO daoMulta = null;   
