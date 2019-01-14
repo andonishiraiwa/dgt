@@ -31,15 +31,7 @@
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
   
   
-    <style>
-    td.details-control {
-    background: url('../resources/details_open.png') no-repeat center center;
-    cursor: pointer;
-}
-tr.shown td.details-control {
-    background: url('../resources/details_close.png') no-repeat center center;
-}
-    </style>
+    <link href="../css/estilos.css" rel="stylesheet" type="text/css">
     
   </head>
 
