@@ -257,14 +257,18 @@ public class MultaController extends HttpServlet {
 	}
 
 	private void anular(HttpServletRequest request) {
+		long identificador = Long.parseLong(id);
+		Multa m = new Multa();
+		m.setId(identificador);
 		try {
-			request.setAttribute("multa", daoMulta.update(daoMulta.getById(Long.parseLong(multado))));
-			op = OP_LISTAR;
-			op = "opanular";
-			vista = VIEW_MULTAS_ANULADAS;
-		} catch (SQLException e) {
-			LOG.error("No se puede anular la multa", e);
-			vista = VIEW_MULTAS;
+			daoMulta.update(m);
+			request.setAttribute("mensaje", "multa anulada");
+			LOG.debug("Multa anulada");
+			//TODO ir a vista multas anuladas
+			vista =VIEW_MULTAS;
+		}catch(Exception e){
+			request.setAttribute("mensaje", "multa no  anulada");
+			LOG.debug("Multa no anulada");
 		}
 	}
 	
@@ -293,7 +297,7 @@ public class MultaController extends HttpServlet {
 			op = OP_LISTAR;
 		}
 		opanular = request.getParameter("opanular");
-		id = request.getParameter("idmulta");
+		id = request.getParameter("id");
 		importe = request.getParameter("importe");
 		concepto = request.getParameter("concepto");
 		fecha_alta = request.getParameter("fecha_alta");
