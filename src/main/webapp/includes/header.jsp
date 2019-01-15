@@ -1,7 +1,13 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<c:set var="idioma" value="${not empty sessionScope.idioma ? sessionScope.idioma : 'es_ES'}" scope="session" />
+<fmt:setLocale value="${idioma}" />
+<fmt:setBundle basename="i18nmessages" /> 
+
 
 <!doctype html>
-<html lang="en">
+<html lang="${idioma}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,25 +19,20 @@
 
 	<base href="${pageContext.request.contextPath}/">
 
-	<style>
-	a{
-	
-	margin-right:30px;
-	}
-	
-	</style>
-
     <!-- Bootstrap core CSS -->
     <link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/4.1/examples/navbar-fixed/navbar-top-fixed.css" rel="stylesheet">
     
-     <!-- datatables -->
+    <!-- datatables -->
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
-  
- 
-    <link rel="stylesheet" href="../css/estilos.css">
+    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
+    
+    
+    <!-- childrow -->
+    <link href=" https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    
     
   </head>
 

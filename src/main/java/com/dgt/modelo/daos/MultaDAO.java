@@ -16,6 +16,10 @@ public class MultaDAO {
 
 	private static final String SQL_GETBYIDMULTA = "SELECT m.id AS 'id_multa', a.id AS 'id_agente', c.id AS 'id_coche', importe, concepto, km, modelo, fecha_alta, fecha_modificacion, fecha_baja, a.nombre FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id AND m.id = ?;";
 	private static final String SQL_GETMULTA = "SELECT m.id , a.id AS 'id_agente', c.id AS 'id_coche', placa, matricula, importe, concepto, km, modelo, fecha_alta, fecha_modificacion, fecha_baja, a.nombre as 'agente' FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id ORDER BY m.id DESC LIMIT 1000;";
+	
+	//Andoni
+	private static final String SQL_GETMULTA_ANULADA = "SELECT m.id , a.id AS 'id_agente', c.id AS 'id_coche', placa, matricula, importe, concepto, km, modelo, fecha_alta, fecha_modificacion, fecha_baja, a.nombre as 'agente' FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id AND fecha_baja IS NOT NULL ORDER BY m.id DESC LIMIT 1000;";
+	
 	private static final String SQL_INSERTMULTA = "INSERT INTO multa (importe, concepto, id_agente, id_coche) VALUES( ?, ?, ?, ?);";
 	private static final String SQL_UPDATE = "UPDATE multa SET fecha_baja = CURRENT_TIMESTAMP  WHERE id = ?;";
 
@@ -74,6 +78,32 @@ public class MultaDAO {
 
 		return multas;
 	}
+	
+	//Andoni
+	public ArrayList<Multa> getMultaAnulada() {
+
+		ArrayList<Multa> multas = new ArrayList<Multa>();
+
+		try (Connection conn = ConnectionManager.getConnection();
+				PreparedStatement pst = conn.prepareStatement(SQL_GETMULTA_ANULADA);
+				ResultSet rs = pst.executeQuery()) {
+
+			while (rs.next()) {
+				try {
+					multas.add(rowMapper(rs));
+				} catch (Exception e) {
+					System.out.println("multa no anulada");
+					e.printStackTrace();
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return multas;
+	}
+	
 
 	public boolean insert(Multa m) throws SQLException {
 

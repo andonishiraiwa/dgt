@@ -28,6 +28,11 @@
 			class="btn-lg btn-danger btn-block text-center">Multar</a> <br /> <br />
 		<a href="multa" class="btn-lg btn-success btn-block text-center">Ver
 			multas</a>
+			
+			<a href="multa" class="btn-lg btn-success btn-block text-center">Ver
+			multas anuladas</a>
+			
+			
 	</div>
 	</main>
 
