@@ -42,7 +42,7 @@ public class MultaController extends HttpServlet {
 
 	private static final String VIEW_MULTAS = "multas.jsp";
 	//Andoni
-	private static final String VIEW_MULTAS_ANULADAS = "anuladas.jsp";
+	private static final String VIEW_NULAS = "anuladas.jsp";
 	private static final String VIEW_FORM = "form.jsp";
 	private static final String VIEW_REDACTAR = "redactar.jsp";
 	private String vista;
@@ -145,12 +145,16 @@ public class MultaController extends HttpServlet {
 				break;
 				
 				//Andoni
+				
+			case OP_LISTAR:
+				listar(request);
+				break;
+				
 			case OP_LISTAR_ANULADAS:
 				listarAnuladas(request);
 				break;
 			default:
-				listar(request);
-				break;
+				
 			}
 		} catch (Exception e) {
 			LOG.error(e);
@@ -211,6 +215,7 @@ public class MultaController extends HttpServlet {
 	private void listarAnuladas(HttpServletRequest request) {
 
 		request.setAttribute("anulada", daoMulta.getMultaAnulada());
+		vista = VIEW_NULAS;
 
 	}
 	
@@ -266,7 +271,7 @@ public class MultaController extends HttpServlet {
 			request.setAttribute("mensaje", "multa anulada");
 			LOG.debug("Multa anulada");
 			//TODO ir a vista multas anuladas
-			vista =VIEW_MULTAS_ANULADAS;
+			vista =VIEW_NULAS;
 		}catch(Exception e){
 			request.setAttribute("mensaje", "multa no  anulada");
 			LOG.debug("Multa no anulada");

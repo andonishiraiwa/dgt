@@ -15,7 +15,7 @@ public class MultaDAO {
 	private static MultaDAO INSTANCE = null;
 
 	private static final String SQL_GETBYIDMULTA = "SELECT m.id AS 'id_multa', a.id AS 'id_agente', c.id AS 'id_coche', importe, concepto, km, modelo, fecha_alta, fecha_modificacion, fecha_baja, a.nombre FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id AND m.id = ?;";
-	private static final String SQL_GETMULTA = "SELECT m.id , a.id AS 'id_agente', c.id AS 'id_coche', placa, matricula, importe, concepto, km, modelo, fecha_alta, fecha_modificacion, fecha_baja, a.nombre as 'agente' FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id ORDER BY m.id DESC LIMIT 1000;";
+	private static final String SQL_GETMULTA = "SELECT m.id , a.id AS 'id_agente', c.id AS 'id_coche', placa, matricula, importe, concepto, km, modelo, fecha_alta, fecha_modificacion, fecha_baja, a.nombre as 'agente' FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id AND fecha_baja IS NULL ORDER BY m.id DESC LIMIT 1000;";
 	
 	//Andoni
 	private static final String SQL_GETMULTA_ANULADA = "SELECT m.id , a.id AS 'id_agente', c.id AS 'id_coche', placa, matricula, importe, concepto, km, modelo, fecha_alta, fecha_modificacion, fecha_baja, a.nombre as 'agente' FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id AND fecha_baja IS NOT NULL ORDER BY m.id DESC LIMIT 1000;";
@@ -92,7 +92,7 @@ public class MultaDAO {
 				try {
 					multas.add(rowMapper(rs));
 				} catch (Exception e) {
-					System.out.println("multa no anulada");
+					System.out.println("multa no válida");
 					e.printStackTrace();
 				}
 			}

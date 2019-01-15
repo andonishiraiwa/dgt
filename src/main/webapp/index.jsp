@@ -26,7 +26,7 @@
 		<h1>Bienvenido</h1>
 		<br /> <br /> <a href="form.jsp"
 			class="btn-lg btn-danger btn-block text-center">Multar</a> <br /> <br />
-		<a href="multa" class="btn-lg btn-success btn-block text-center">Ver
+		<a href="multa?op=1" class="btn-lg btn-success btn-block text-center">Ver
 			multas</a>
 			
 			<a href="multa?op=6" class="btn-lg btn-success btn-block text-center">Ver
