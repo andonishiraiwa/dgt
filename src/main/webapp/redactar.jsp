@@ -9,7 +9,7 @@
 		</span></li>
 	</ul>
 
-	<a href="index.jsp" class="btn btn-info ">Atras</a> <br /> <br />
+	<a href="form.jsp" class="btn btn-info ">Atras</a> <br /> <br />
 
 	<h2>
 		Especifique los detalles de la multa para <span class="text-info">

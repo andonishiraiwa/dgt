@@ -45,6 +45,7 @@ public class MultaController extends HttpServlet {
 	private static final String VIEW_NULAS = "anuladas.jsp";
 	private static final String VIEW_FORM = "form.jsp";
 	private static final String VIEW_REDACTAR = "redactar.jsp";
+	private static final String VIEW_MPPAL = "index.jsp";
 	private String vista;
 
 	public static final String OP_LISTAR = "1";
@@ -154,7 +155,8 @@ public class MultaController extends HttpServlet {
 				listarAnuladas(request);
 				break;
 			default:
-				
+				mensaje = new Alerta(Alerta.TIPO_DANGER, "Operación incorrecta");
+				vista = VIEW_MPPAL;
 			}
 		} catch (Exception e) {
 			LOG.error(e);
