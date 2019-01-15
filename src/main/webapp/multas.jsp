@@ -23,30 +23,29 @@
 				<c:otherwise>
 					<th>Fecha de alta</th>
 					<th>Fecha de baja</th>
-					<th class="dt-body-right sorting" tabindex="0"
-						aria-controls="example" rowspan="1" colspan="1"
-						style="width: 0px; display: none;"
-						aria-label="Salary: activate to sort column ascending">Salary</th>
 				</c:otherwise>
 			</c:choose>
 
 		</tr>
 		  </thead>
 		  <tbody>
-		 	<c:forEach items="${multa}" var="m">
+
+		<c:forEach items="${multa}" var="m">
 			<tr>
 				<!-- <span class="border border-primary"> -->
 				<th></th>
 				<td>${m.id}</td>
 				<td>${m.coche.matricula}</td>
 				<td>${m.fecha_alta}</td>
-				<c:if test="${op == 'baja'}">
+				<%-- <c:if test="${op == 'opanular'}">
 					<!-- condicion, actúa o no actúa -->
 					<td>${m.fechaBaja}</td>
 					<td id="tablaOrdenable" style="display: none;">$162,700</td>
-				</c:if>
+				</c:if> --%>
+				<%-- <td>${m.fecha_baja}</td> --%>
 				<td>${m.fecha_baja}</td>
-
+				<td><a href="multa?op=5&id=${m.id}" class="btn btn-danger">ANULAR</a></td>
+				
 				<!-- </span> -->
 			</tr>
 		</c:forEach>
