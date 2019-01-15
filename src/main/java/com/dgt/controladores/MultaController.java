@@ -147,6 +147,7 @@ public class MultaController extends HttpServlet {
 				//Andoni
 			case OP_LISTAR_ANULADAS:
 				listarAnuladas(request);
+				break;
 			default:
 				listar(request);
 				break;
@@ -265,7 +266,7 @@ public class MultaController extends HttpServlet {
 			request.setAttribute("mensaje", "multa anulada");
 			LOG.debug("Multa anulada");
 			//TODO ir a vista multas anuladas
-			vista =VIEW_MULTAS;
+			vista =VIEW_MULTAS_ANULADAS;
 		}catch(Exception e){
 			request.setAttribute("mensaje", "multa no  anulada");
 			LOG.debug("Multa no anulada");

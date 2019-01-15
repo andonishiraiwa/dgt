@@ -29,7 +29,7 @@
 		<a href="multa" class="btn-lg btn-success btn-block text-center">Ver
 			multas</a>
 			
-			<a href="multa" class="btn-lg btn-success btn-block text-center">Ver
+			<a href="multa?op=6" class="btn-lg btn-success btn-block text-center">Ver
 			multas anuladas</a>
 			
 			
