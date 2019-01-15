@@ -12,17 +12,17 @@
 		<table class="table tablaOrdenable responsive nowrap">
 		  <thead class="thead-dark">
 		   <tr>
-			<th></th>
-			<th>Id</th>
-			<th>Matricula</th>
+			<th scope="col"></th>
+			<th scope="col">Id</th>
+			<th scope="col">Matricula</th>
 			<!-- <th>Fecha</th> -->
 			<c:choose>
 				<c:when test="${op != 'baja'}">
-					<th>Fecha de alta</th>
+					<th scope="col">Fecha de alta</th>
 				</c:when>
 				<c:otherwise>
-					<th>Fecha de alta</th>
-					<th>Fecha de baja</th>
+					<th scope="col">Fecha de alta</th>
+					<th scope="col">Fecha de baja</th>
 				</c:otherwise>
 			</c:choose>
 
@@ -33,18 +33,19 @@
 		<c:forEach items="${multa}" var="m">
 			<tr>
 				<!-- <span class="border border-primary"> -->
-				<th></th>
-				<td>${m.id}</td>
-				<td>${m.coche.matricula}</td>
-				<td>${m.fecha_alta}</td>
+				<th scope="row"></th>
+				<td scope="row">${m.id}</td>
+				<td scope="row">${m.coche.matricula}</td>
+				<td scope="row">${m.fecha_alta}</td>
+				<%-- <fmt:formatDate value="${m.fecha_alta}" pattern="yyyy-MM-dd hh:mm:ss"/>--%>
 				<%-- <c:if test="${op == 'opanular'}">
 					<!-- condicion, actúa o no actúa -->
 					<td>${m.fechaBaja}</td>
 					<td id="tablaOrdenable" style="display: none;">$162,700</td>
 				</c:if> --%>
 				<%-- <td>${m.fecha_baja}</td> --%>
-				<td>${m.fecha_baja}</td>
-				<td><a href="multa?op=5&id=${m.id}" class="btn btn-danger">ANULAR</a></td>
+				<td scope="row">${m.fecha_baja}</td>
+				<td scope="row"><a href="multa?op=5&id=${m.id}" class="btn btn-danger">ANULAR</a></td>
 				
 				<!-- </span> -->
 			</tr>
