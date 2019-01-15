@@ -41,6 +41,8 @@ public class MultaController extends HttpServlet {
 	private Validator validator;
 
 	private static final String VIEW_MULTAS = "multas.jsp";
+	//Andoni
+	private static final String VIEW_MULTAS_ANULADAS = "anuladas.jsp";
 	private static final String VIEW_FORM = "form.jsp";
 	private static final String VIEW_REDACTAR = "redactar.jsp";
 	private String vista;
@@ -51,6 +53,8 @@ public class MultaController extends HttpServlet {
 	public static final String OP_BUSCAR_MATRICULA = "4"; // buscar por matricula, pasarle el parametro de matricula a
 															// redactar.jsp
 	public static final String OP_ANULAR = "5";
+	//Andoni
+	public static final String OP_LISTAR_ANULADAS = "6";
 
 	private Alerta alerta;
 
@@ -139,6 +143,10 @@ public class MultaController extends HttpServlet {
 			case OP_ANULAR:
 				anular(request);
 				break;
+				
+				//Andoni
+			case OP_LISTAR_ANULADAS:
+				listarAnuladas(request);
 			default:
 				listar(request);
 				break;
@@ -197,6 +205,14 @@ public class MultaController extends HttpServlet {
 
 	}
 
+//Andoni	
+	
+	private void listarAnuladas(HttpServletRequest request) {
+
+		request.setAttribute("anulada", daoMulta.getMultaAnulada());
+
+	}
+	
 	private void guardar(HttpServletRequest request) {
 
 		// crear video mediante parametros del formulario
@@ -245,12 +261,13 @@ public class MultaController extends HttpServlet {
 			request.setAttribute("multa", daoMulta.update(daoMulta.getById(Long.parseLong(multado))));
 			op = OP_LISTAR;
 			op = "opanular";
-			vista = VIEW_MULTAS;
+			vista = VIEW_MULTAS_ANULADAS;
 		} catch (SQLException e) {
 			LOG.error("No se puede anular la multa", e);
+			vista = VIEW_MULTAS;
 		}
 	}
-
+	
 	private void irFormulario(HttpServletRequest request) {
 
 		vista = VIEW_FORM;
