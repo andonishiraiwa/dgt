@@ -18,7 +18,7 @@
 <br />
 
 
-
+<h2>Multas anuladas</h2>
 
 <table id="table_id" data-page-length='25'
 	class="table tablaOrdenable display">
