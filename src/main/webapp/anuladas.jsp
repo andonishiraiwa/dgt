@@ -49,7 +49,7 @@
 				<th></th>
 				<td>${ma.id}</td>
 				<td>${ma.coche.matricula}</td>
-				<td>${ma.fecha_alta}</td>
+				<td><fmt:formatDate value="${ma.fecha_alta}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
 				<c:if test="${op == 'baja'}">
 					
 					<td>${ma.fechaBaja}</td>

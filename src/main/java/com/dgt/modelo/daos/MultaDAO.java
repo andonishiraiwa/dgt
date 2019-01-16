@@ -1,7 +1,7 @@
 package com.dgt.modelo.daos;
 
 import java.sql.Connection;
-import java.sql.Date;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -152,11 +152,12 @@ public class MultaDAO {
 		m.setConcepto(rs.getString("concepto"));
 		
 		//convertir fecha TimeStamp a java.util.Date
-		//Timestamp timestampalta = rs.getTimestamp("fecha_alta");	
-		// me pide casteo, no entiendo por que
-		//m.setFecha_alta((Date) new java.util.Date(timestampalta.getTime()));
+		Timestamp timestampalta = rs.getTimestamp("fecha_alta");	
 		
-		m.setFecha_alta(rs.getDate("fecha_alta"));
+		m.setFecha_alta(new java.util.Date(timestampalta.getTime()));
+		
+		
+		//m.setFecha_alta(rs.getDate("fecha_alta"));
 		m.setFecha_modificacion(rs.getDate("fecha_modificacion"));
 		m.setFecha_baja(rs.getDate("fecha_baja"));
 

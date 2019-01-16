@@ -36,7 +36,7 @@
 				<th scope="row"></th>
 				<td scope="row">${m.id}</td>
 				<td scope="row">${m.coche.matricula}</td>
-				<td scope="row">${m.fecha_alta}</td>
+				<td scope="row"><fmt:formatDate value="${m.fecha_alta}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
 				<%-- <fmt:formatDate value="${m.fecha_alta}" pattern="yyyy-MM-dd hh:mm:ss"/>--%>
 				<%-- <c:if test="${op == 'opanular'}">
 					<!-- condicion, actúa o no actúa -->
