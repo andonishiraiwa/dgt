@@ -159,7 +159,10 @@ public class MultaDAO {
 		
 		//m.setFecha_alta(rs.getDate("fecha_alta"));
 		m.setFecha_modificacion(rs.getDate("fecha_modificacion"));
-		m.setFecha_baja(rs.getDate("fecha_baja"));
+		
+		Timestamp timestampbaja = rs.getTimestamp("fecha_baja");
+		m.setFecha_baja(new java.util.Date(timestampbaja.getTime()));
+		//m.setFecha_baja(rs.getDate("fecha_baja"));
 
 		Agente a = new Agente();
 		a.setId(rs.getLong("id_agente"));
