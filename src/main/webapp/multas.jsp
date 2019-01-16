@@ -42,8 +42,7 @@
 				<td scope="row">${m.coche.modelo}</td>
 				<td scope="row">${m.coche.km}</td>
 <%-- 				<td><a href="multa?op=5&id=${m.id}" class="btn btn-danger">ANULAR</a></td> --%>
-				<c:if test="${m.id > 0}">
-					
+				<c:if test="${m.id > 0}">					
 				<!-- Button trigger modal -->
 				<td><button type="button" class="btn btn-outline-danger btn-block mt-4" data-toggle="modal" data-target="#exampleModal">
 				  ANULAR
