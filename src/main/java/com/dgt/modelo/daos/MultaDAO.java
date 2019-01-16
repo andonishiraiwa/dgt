@@ -153,18 +153,17 @@ public class MultaDAO {
 		m.setImporte(rs.getFloat("importe"));
 		m.setConcepto(rs.getString("concepto"));
 		
-		//convertir fecha TimeStamp a java.util.Date
-		Timestamp timestampalta = rs.getTimestamp("fecha_alta");	
+		//convertir fecha TimeStamp a java.util.Date	
 		
-		m.setFecha_alta(new java.util.Date(timestampalta.getTime()));
+		m.setFecha_alta(rs.getTimestamp("fecha_alta"));
 		
 		
 		//m.setFecha_alta(rs.getDate("fecha_alta"));
-		m.setFecha_modificacion(rs.getDate("fecha_modificacion"));
+		m.setFecha_modificacion(rs.getTimestamp("fecha_modificacion"));
 		
 		//Timestamp timestampbaja = rs.getTimestamp("fecha_baja");
 	//	m.setFecha_baja(new java.util.Date(timestampbaja.getTime()));
-m.setFecha_baja(rs.getDate("fecha_baja"));
+		m.setFecha_baja(rs.getTimestamp("fecha_baja"));
 
 		Agente a = new Agente();
 		a.setId(rs.getLong("id_agente"));
