@@ -15,7 +15,7 @@
 
 	<h1>Busqueda de auto</h1>
 
-
+ 
 
 	<form novalidate action="multa" method="post" class="form-signin">
 
