@@ -9,7 +9,7 @@
 	
 
 	
-<table class="table tablaOrdenable responsive nowrap">
+<table id= "tbla_multas" class="table tablaOrdenable responsive nowrap">
 	<thead class="thead-dark">
 		<tr>
 			<th scope="col"></th>

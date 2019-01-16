@@ -3,11 +3,25 @@ package com.dgt.modelo.pojos;
 import java.sql.Timestamp;
 import java.util.Date;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Multa {
 
 	private long id;
+	
+	@NotNull
+	@Min(value = 1, message = "Debe ser una cantidad mayor que 1")
 	private float importe;
+	
+	@NotEmpty
+	@Size(min = 10, max = 255)
 	private String concepto;
+	
+	
 	private Timestamp fecha_alta;
 	private Timestamp fecha_modificacion;
 	private Timestamp fecha_baja;
