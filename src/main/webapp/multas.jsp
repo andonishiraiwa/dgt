@@ -19,7 +19,11 @@
 			<th scope="col">Id</th>
 			<th scope="col">Matricula</th>
 			<th scope="col">Fecha de alta</th>
-			<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" style="width: 0px; display: none;" aria-label="Extn.: activate to sort column ascending">Importe</th>
+			<th scope="col">Importe</th>
+			<th scope="col">Concepto</th>
+			<th scope="col">Modelo</th>
+			<th scope="col">Km</th>
+			<th scope="col">Anulación</th>
 			
 
 		</tr>
@@ -33,7 +37,12 @@
 				<td scope="row">${m.id}</td>
 				<td scope="row">${m.coche.matricula}</td>
 				<td scope="row"><fmt:formatDate value="${m.fecha_alta}" pattern="yyyy-MM-dd hh:mm:ss" /></td>
-				<td style="display: none;">${m.importe} </td>
+				<td scope="row">${m.importe}</td>
+				<td scope="row">${m.concepto}</td>
+				<td scope="row">${m.coche.modelo}</td>
+				<td scope="row">${m.coche.km}</td>
+				<td><a href="multa?op=5&id=${m.id}" class="btn btn-danger">ANULAR</a></td>
+				
 
 				<!-- </span> -->
 			</tr>
@@ -44,11 +53,15 @@
 
 	<tfoot class="thead-dark">
 		<tr>
-			<th></th>
-			<th>Id</th>
-			<th>Matricula</th>
-			<th>Fecha de alta</th>
-			
+			<th scope="col"></th>
+			<th scope="col">Id</th>
+			<th scope="col">Matricula</th>
+			<th scope="col">Fecha de alta</th>
+			<th scope="col">Importe</th>
+			<th scope="col">Concepto</th>
+			<th scope="col">Modelo</th>
+			<th scope="col">Km</th>
+			<th scope="col">Anulación</th>
 			
 
 		</tr>

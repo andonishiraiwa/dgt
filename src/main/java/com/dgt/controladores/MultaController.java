@@ -273,7 +273,7 @@ public class MultaController extends HttpServlet {
 			request.setAttribute("mensaje", "multa anulada");
 			LOG.debug("Multa anulada");
 			//TODO ir a vista multas anuladas
-			vista =VIEW_NULAS;
+			listarAnuladas(request);
 		}catch(Exception e){
 			request.setAttribute("mensaje", "multa no  anulada");
 			LOG.debug("Multa no anulada");
