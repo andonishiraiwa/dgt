@@ -28,16 +28,13 @@
 			<th>Id</th>
 			<th>Matricula</th>
 		
-			<c:choose>
-				<c:when test="${op != 'baja'}">
+			
 					<th>Fecha de alta</th>
-				</c:when>
-				<c:otherwise>
-					<th>Fecha de alta</th>
+				
 					<th>Fecha de baja</th>
 					
-				</c:otherwise>
-			</c:choose>
+			
+		
 
 		</tr>
 	</thead>
@@ -49,16 +46,16 @@
 				<th></th>
 				<td>${ma.id}</td>
 				<td>${ma.coche.matricula}</td>
-				<td><fmt:formatDate value="${ma.fecha_alta}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
-				<c:if test="${op == 'baja'}">
+			<td scope="row"><fmt:formatDate value="${ma.fecha_alta}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
+				
 					
-					<td>${ma.fechaBaja}</td>
-					<td id="tablaOrdenable" style="display: none;">$162,700</td>
-				</c:if>
+					<td scope="row"><fmt:formatDate value="${ma.fecha_baja}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
+					
+			
 
 			</tr>
-		</c:forEach>
-
+	
+</c:forEach>
 
 	</tbody>
 
@@ -68,15 +65,12 @@
 			<th></th>
 			<th>Id</th>
 			<th>Matricula</th>
-			<c:choose>
-				<c:when test="${op != 'baja'}">
+	
 					<th>Fecha de alta</th>
-				</c:when>
-				<c:otherwise>
+		
 					<th>Fecha de alta</th>
 					<th>Fecha de baja</th>
-				</c:otherwise>
-			</c:choose>
+		
 		</tr>
 </tfoot>
 </table>
