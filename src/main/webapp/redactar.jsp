@@ -20,9 +20,9 @@
 	<br />
 	<form novalidate action="multa" method="post" class="form-signin">
 
-		<c:if test="${not empty mensaje}">
+		<c:if test="${not empty alerta}">
 			<div class="alert alert-danger alert-dismissible fade show"
-				role="alert">${mensaje}</div>
+				role="alert">${alerta}</div>
 		</c:if>
 
 		<label for="importe" class="h5">Importe</label><br /> <input
