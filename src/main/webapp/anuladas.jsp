@@ -20,21 +20,22 @@
 
 <h2>Multas anuladas</h2>
 
-<table id="table_id" data-page-length='25'
-	class="table tablaOrdenable display">
+<table id= "tbla_multasanuladas" class="table tablaOrdenable display responsive nowrap"">
 	<thead>
 		<tr>
-			<th></th>
-			<th>Id</th>
-			<th>Matricula</th>
-		
+			<th scope="col"></th>
+			<th scope="col">Id</th>
+			<th scope="col">Matricula</th>
+			<th scope="col">Fecha de alta</th>
+			<th scope="col">Fecha de baja</th>
+			<th scope="col">Importe</th>
+			<th scope="col">Concepto</th>
+			<th scope="col">Modelo</th>
+			<th scope="col">Km</th>
 			
-					<th>Fecha de alta</th>
-				
-					<th>Fecha de baja</th>
-					
-			
-		
+
+
+
 
 		</tr>
 	</thead>
@@ -46,11 +47,12 @@
 				<th></th>
 				<td>${ma.id}</td>
 				<td>${ma.coche.matricula}</td>
-			<td scope="row"><fmt:formatDate value="${ma.fecha_alta}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
-				
-					
-					<td scope="row"><fmt:formatDate value="${ma.fecha_baja}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
-					
+				<td scope="row"><fmt:formatDate value="${ma.fecha_alta}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
+				<td scope="row"><fmt:formatDate value="${ma.fecha_baja}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
+				<td scope="row">${ma.importe}</td>
+				<td scope="row">${ma.concepto}</td>
+				<td scope="row">${ma.coche.modelo}</td>
+				<td scope="row">${ma.coche.km}</td>	
 			
 
 			</tr>
@@ -62,14 +64,15 @@
 	
 	<tfoot>
 		<tr>
-			<th></th>
-			<th>Id</th>
-			<th>Matricula</th>
-	
-					<th>Fecha de alta</th>
-		
-				
-					<th>Fecha de baja</th>
+			<th scope="col"></th>
+			<th scope="col">Id</th>
+			<th scope="col">Matricula</th>
+			<th scope="col">Fecha de alta</th>
+			<th scope="col">Fecha de baja</th>
+			<th scope="col">Importe</th>
+			<th scope="col">Concepto</th>
+			<th scope="col">Modelo</th>
+			<th scope="col">Km</th>
 		
 		</tr>
 </tfoot>
