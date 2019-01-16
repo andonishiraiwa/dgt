@@ -68,7 +68,7 @@
 	
 					<th>Fecha de alta</th>
 		
-					<th>Fecha de alta</th>
+				
 					<th>Fecha de baja</th>
 		
 		</tr>

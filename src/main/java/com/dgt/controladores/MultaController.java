@@ -209,7 +209,7 @@ public class MultaController extends HttpServlet {
 	private void listar(HttpServletRequest request) {
 
 		request.setAttribute("multa", daoMulta.getMulta());
-
+		vista = VIEW_MULTAS;
 	}
 
 //Andoni	
