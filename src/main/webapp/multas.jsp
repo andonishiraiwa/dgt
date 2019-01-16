@@ -59,7 +59,7 @@
 				        </button>
 				      </div>
 				      <div class="modal-body">
-				        ¿ Estas serguro que deseas eliminar el registro ?
+				        ¿ Estas serguro de que desea anular esta multa ?
 				      </div>
 				      <div class="modal-footer">
 				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
