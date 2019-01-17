@@ -33,7 +33,7 @@ public class LogoutController extends HttpServlet {
 		session.invalidate();
 		session = null;
 		
-		response.sendRedirect( request.getContextPath() + "/login");
+		response.sendRedirect( request.getContextPath() + "/index.jsp");
 		
 	}
 

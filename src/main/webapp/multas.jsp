@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="mystyle.css">
 
 <h2>Lista de multas</h2>
-<main role="main" class="container"> <a href="index.jsp" class="btn btn-info ">Atras</a>
+<main role="main" class="container"> <a href="principal.jsp" class="btn btn-info ">Atras</a>
 <br>
 <br>
 <a href="multa?op=2&id=-1" class="btn btn-outline-success mb-2">Crear Nuevo Registro</a>
