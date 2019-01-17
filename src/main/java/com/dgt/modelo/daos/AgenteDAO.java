@@ -12,7 +12,7 @@ import com.dgt.modelo.pojos.Agente;
 public class AgenteDAO {
 	
 	private static AgenteDAO INSTANCE = null;
-	
+	private static final String SQL_GETBYPLACA = "SELECT placa, id FROM dgt.agente WHERE placa = ?;";
 	private static final String SQL_GETBYIDAGENTE = "SELECT id, nombre FROM dgt.agente WHERE id = ?;";
 
 	public AgenteDAO() {
@@ -44,6 +44,10 @@ public class AgenteDAO {
 		return a;
 	}
 
+	
+	
+	
+	
 	public Agente getById(long id) {
 
 		Agente a = null;
@@ -69,6 +73,7 @@ public class AgenteDAO {
 		Agente a = new Agente();
 		a.setId(rs.getLong("id"));
 		a.setNombre(rs.getString("nombre"));
+		a.setPlaca(rs.getString("placa"));
 		
 		return a;
 	}
