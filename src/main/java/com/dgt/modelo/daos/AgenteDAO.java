@@ -1,5 +1,6 @@
 package com.dgt.modelo.daos;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,12 +10,15 @@ import com.dgt.modelo.pojos.Agente;
 
 
 
+
 public class AgenteDAO {
 	
 	private static AgenteDAO INSTANCE = null;
 	private static final String SQL_GETBYPLACA = "SELECT placa, id FROM dgt.agente WHERE placa = ?;";
-	private static final String SQL_GETBYIDAGENTE = "SELECT id, nombre FROM dgt.agente WHERE id = ?;";
-
+	
+	//private static final String SQL_GETBYIDAGENTE = "SELECT id, nombre FROM dgt.agente WHERE id = ?;";
+	private static final String SQL_GETBYIDAGENTE = "{call pa_agente_getById(?)}";
+	
 	public AgenteDAO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -30,10 +34,10 @@ public class AgenteDAO {
 	
 	public Agente getByUser(Agente a) {
 		try (Connection conn = ConnectionManager.getConnection();
-				PreparedStatement pst = conn.prepareStatement(SQL_GETBYIDAGENTE);) {
-			pst.setLong(1, a.getId()); //Donde el parametro 1 sea definido por el obtenido por getId
+				CallableStatement cs = conn.prepareCall(SQL_GETBYIDAGENTE);) {
+			cs.setLong(1, a.getId()); //Donde el parametro 1 sea definido por el obtenido por getId
 
-			try (ResultSet rs = pst.executeQuery()) {
+			try (ResultSet rs = cs.executeQuery()) {
 				while (rs.next()) {
 					a = rowMapper(rs);
 				}
