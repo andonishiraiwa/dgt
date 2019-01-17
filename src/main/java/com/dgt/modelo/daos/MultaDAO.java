@@ -1,11 +1,13 @@
 package com.dgt.modelo.daos;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.sql.Types;
 import java.util.ArrayList;
 
 import com.dgt.modelo.pojos.Agente;
@@ -17,14 +19,18 @@ public class MultaDAO {
 	private static MultaDAO INSTANCE = null;
 
 	private static final String SQL_GETBYIDMULTA = "SELECT m.id AS 'id_multa', a.id AS 'id_agente', c.id AS 'id_coche', importe, concepto, km, modelo, fecha_alta, fecha_modificacion, fecha_baja, a.nombre FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id AND m.id = ?;";
-	private static final String SQL_GETMULTA = "SELECT m.id , a.id AS 'id_agente', c.id AS 'id_coche', placa, matricula, importe, concepto, km, modelo, fecha_alta, fecha_modificacion, fecha_baja, a.nombre as 'agente' FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id AND fecha_baja IS NULL ORDER BY m.id DESC LIMIT 1000;";
 	
-	//Andoni
-	private static final String SQL_GETMULTA_ANULADA = "SELECT m.id , a.id AS 'id_agente', c.id AS 'id_coche', placa, matricula, importe, concepto, km, modelo, fecha_alta, fecha_modificacion, fecha_baja, a.nombre as 'agente' FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id AND fecha_baja IS NOT NULL ORDER BY m.id DESC LIMIT 1000;";
+	//private static final String SQL_GETMULTA = "SELECT m.id , a.id AS 'id_agente', c.id AS 'id_coche', placa, matricula, importe, concepto, km, modelo, fecha_alta, fecha_modificacion, fecha_baja, a.nombre as 'agente' FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id AND fecha_baja IS NULL ORDER BY m.id DESC LIMIT 1000;";
+	private static final String SQL_GETMULTA = "{call pa_multa_getAll(?)}";											
 	
-	private static final String SQL_INSERTMULTA = "INSERT INTO multa (importe, concepto, id_agente, id_coche) VALUES( ?, ?, ?, ?);";
-	private static final String SQL_UPDATE = "UPDATE multa SET fecha_baja = CURRENT_TIMESTAMP  WHERE id = ?;";
-
+	//private static final String SQL_GETMULTA_ANULADA = "SELECT m.id , a.id AS 'id_agente', c.id AS 'id_coche', placa, matricula, importe, concepto, km, modelo, fecha_alta, fecha_modificacion, fecha_baja, a.nombre as 'agente' FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id AND fecha_baja IS NOT NULL ORDER BY m.id DESC LIMIT 1000;";
+	private static final String SQL_GETMULTA_ANULADA = "{call pa_multaAnulada_getAll(?)}";
+	
+	//private static final String SQL_INSERTMULTA = "INSERT INTO multa (importe, concepto, id_agente, id_coche) VALUES( ?, ?, ?, ?);";
+	private static final String SQL_INSERTMULTA = "{call pa_multa_insert(?,?,?,?,?)}";
+	
+	//private static final String SQL_UPDATE = "UPDATE multa SET fecha_baja = CURRENT_TIMESTAMP  WHERE id = ?;";
+	private static final String SQL_UPDATE = "{call pa_multa_update(?)}";
 	public MultaDAO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -57,16 +63,16 @@ public class MultaDAO {
 		return m;
 	}
 
-	public ArrayList<Multa> getMulta() {
+	public ArrayList<Multa> getMulta(long id) {
 
 		ArrayList<Multa> multas = new ArrayList<Multa>();
 
 		
 
 		try (Connection conn = ConnectionManager.getConnection();
-				PreparedStatement pst = conn.prepareStatement(SQL_GETMULTA);
-				ResultSet rs = pst.executeQuery()) {
-
+				CallableStatement cs = conn.prepareCall(SQL_GETMULTA);
+				ResultSet rs = cs.executeQuery()) {
+			cs.setLong(1, id);
 			while (rs.next()) {
 				try {
 					multas.add(rowMapper(rs));
@@ -84,14 +90,14 @@ public class MultaDAO {
 	}
 	
 	//Andoni
-	public ArrayList<Multa> getMultaAnulada() {
+	public ArrayList<Multa> getMultaAnulada(long id) {
 
 		ArrayList<Multa> multas = new ArrayList<Multa>();
 
 		try (Connection conn = ConnectionManager.getConnection();
-				PreparedStatement pst = conn.prepareStatement(SQL_GETMULTA_ANULADA);
-				ResultSet rs = pst.executeQuery()) {
-
+				CallableStatement cs = conn.prepareCall(SQL_GETMULTA_ANULADA);
+				ResultSet rs = cs.executeQuery()) {
+			cs.setLong(1, id);
 			while (rs.next()) {
 				try {
 					multas.add(rowMapper(rs));
@@ -114,13 +120,14 @@ public class MultaDAO {
 		boolean resul = false;
 
 		try (Connection conn = ConnectionManager.getConnection();
-				PreparedStatement pst = conn.prepareStatement(SQL_INSERTMULTA);) {
+				CallableStatement cs = conn.prepareCall(SQL_INSERTMULTA);) {
 
-			pst.setFloat(1, m.getImporte());
-			pst.setString(2, m.getConcepto());
-			pst.setLong(3, m.getAgente().getId());
-			pst.setLong(4, m.getCoche().getId());
-			int affectedRows = pst.executeUpdate();
+			cs.setFloat(1, m.getImporte());
+			cs.setString(2, m.getConcepto());
+			cs.setLong(3, m.getAgente().getId());
+			cs.setLong(4, m.getCoche().getId());
+			cs.registerOutParameter(5, Types.INTEGER);
+			int affectedRows = cs.executeUpdate();
 			if (affectedRows == 1) {
 				resul = true;
 			}
@@ -133,11 +140,11 @@ public class MultaDAO {
 
 		boolean resul = false;
 		try (Connection conn = ConnectionManager.getConnection();
-				PreparedStatement pst = conn.prepareStatement(SQL_UPDATE);) {
+				CallableStatement cs = conn.prepareCall(SQL_UPDATE);) {
 
-			pst.setLong(1, m.getId());
+			cs.setLong(1, m.getId());
 
-			int affectedRows = pst.executeUpdate();
+			int affectedRows = cs.executeUpdate();
 			if (affectedRows == 1) {
 				resul = true;
 			}
