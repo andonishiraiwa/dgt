@@ -33,7 +33,7 @@ public class LoginController extends HttpServlet {
 
 	
 	private ValidatorFactory factory;
-	@SuppressWarnings("unused")
+	
 	private Validator validator;
 	public static final String VIEW_LOGIN = "index.jsp";
 	private static AgenteDAO daoAgente = null;
@@ -53,9 +53,9 @@ public class LoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
+		/*HttpSession session = request.getSession();
 		a = daoAgente.getById(a.getId());
-		session.setAttribute("agenteLogueado", a);
+		session.setAttribute("agenteLogueado", a);*/
 		request.getRequestDispatcher("principal.jsp").forward(request, response);
 	}
 
@@ -65,7 +65,8 @@ public class LoginController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String placa = request.getParameter("placa");
 		String pass = request.getParameter("pass");
-		String idioma = request.getParameter("idioma");
+		String nombre = request.getParameter("nombre");
+		//String idioma = request.getParameter("idioma");
 		String view = VIEW_LOGIN;
 		boolean redirect = false;
 		
@@ -84,6 +85,8 @@ public class LoginController extends HttpServlet {
 			// validar
 			Agente a = new Agente();
 			a.setPlaca(placa);
+			a.setNombre(nombre);
+			a.setPassword(pass);
 			
 			//TODO configurar contraseñas
 //			a.setPassword(pass);
@@ -103,8 +106,7 @@ public class LoginController extends HttpServlet {
 			}else {                                // validacion OK
 			
 				a = daoAgente.login(placa, pass);
-				
-				if ( a == null ) {
+							if ( a == null ) {
 					
 					request.setAttribute("mensaje", "Login incorrecto");
 				}else {
@@ -112,8 +114,9 @@ public class LoginController extends HttpServlet {
 					
 					session.setMaxInactiveInterval(60*5);
 					// asociamos un listener para listar usuarios @see UsuariosListener
-					session.setAttribute("agente", a);
-					session.setAttribute("idioma", idioma );
+					//a = daoAgente.getByUser(a);
+					session.setAttribute("agenteLogueado", a);
+					//session.setAttribute("idioma", idioma );
 					redirect = true;					
 					LOG.debug("guardamos en session usuario e idioma");			
 				}
