@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import com.dgt.modelo.pojos.Agente;
 
 
+
 public class AgenteDAO {
 	
 	private static AgenteDAO INSTANCE = null;
@@ -69,6 +70,28 @@ public class AgenteDAO {
 		a.setId(rs.getLong("id"));
 		a.setNombre(rs.getString("nombre"));
 		
+		return a;
+	}
+
+	public Agente login(String placa, String pass) {
+		// TODO configurar funcion logueo
+		Agente a = null;
+		String sql = "SELECT id, placa, password FROM agente WHERE placa = ? AND password = ?;";
+
+		try (Connection conn = ConnectionManager.getConnection(); PreparedStatement pst = conn.prepareStatement(sql);) {
+			pst.setString(1, placa);
+			pst.setString(2, pass);
+			try (ResultSet rs = pst.executeQuery()) {
+				while (rs.next()) { // hemos encontrado al agente
+					a = new Agente();
+					a.setId(rs.getLong("id"));
+					a.setPlaca(rs.getString("placa"));
+					a.setPassword(rs.getString("password"));
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return a;
 	}
 	

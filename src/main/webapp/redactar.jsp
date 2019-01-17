@@ -25,17 +25,26 @@
 				role="alert">${alerta}</div>
 		</c:if>
 
-		<label for="importe" class="h5">Importe</label><br /> <input
-			type="text" name="importe" class="form-control"
-			placeholder="cantidad en euros" required autofocus> <br /> <label
-			for="concepto" class="h5">Concepto</label> <br />
-		<textarea name="concepto" class="form-control"
-			placeholder="indique el asunto de la multa" required autofocus></textarea>
-		<input type="hidden" name="idcoche" value="${coche.id}"> <input
-			type="hidden" name="idagente" value="${agente.id}">
+
+	<!-- TODO contador de palabras -->
+
+		<label for="importe" class="h5">Importe</label><br /> 
+		
+		<input type="text" name="importe" class="form-control"placeholder="cantidad en euros" required autofocus> 
+		<br />
+		 <label for="concepto" class="h5">Concepto</label>
+		  <br />
+		<textarea name="concepto" class="form-control" placeholder="indique el asunto de la multa" required autofocus></textarea>
+		<input type="hidden" name="idcoche" value="${coche.id}"> 
+		<input type="hidden" name="idagente" value="${agente.id}">
 		<%-- 		<input type="hidden" name="idmulta" value="${(op == '1') ? multa.id : 0}"> --%>
-		<br /> <br /> <input type="hidden" name="op" value="3"> <input
-			type="submit" value="Registrar"> <br /> <br />
+		
+		<br /> <br /> 
+		
+		<input type="hidden" name="op" value="3">
+		 <input	type="submit" value="Registrar">
+		 
+		  <br /> <br />
 	</form>
 </div>
 

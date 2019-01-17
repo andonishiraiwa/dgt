@@ -1,6 +1,7 @@
 package com.dgt.controladores;
 
 import java.io.IOException;
+import java.util.Set;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -9,12 +10,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
+import org.apache.log4j.Logger;
+
 import com.dgt.modelo.daos.AgenteDAO;
 import com.dgt.modelo.pojos.Agente;
+
 
 
 
@@ -24,11 +29,13 @@ import com.dgt.modelo.pojos.Agente;
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
+	private final static Logger LOG = Logger.getLogger(LoginController.class);
+
+	
 	private ValidatorFactory factory;
 	@SuppressWarnings("unused")
 	private Validator validator;
-	
+	public static final String VIEW_LOGIN = "index.jsp";
 	private static AgenteDAO daoAgente = null;
 	Agente a = null;
 	
@@ -49,15 +56,83 @@ public class LoginController extends HttpServlet {
 		HttpSession session = request.getSession();
 		a = daoAgente.getById(4);
 		session.setAttribute("agenteLogueado", a);
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		request.getRequestDispatcher("principal.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String placa = request.getParameter("placa");
+		String pass = request.getParameter("pass");
+		String idioma = request.getParameter("idioma");
+		String view = VIEW_LOGIN;
+		boolean redirect = false;
+		
+		try {
+			
+			HttpSession session = request.getSession();
+		
+	
+			
+//			//guardar cookie
+//			Cookie cIdioma = new Cookie("cIdioma", idioma);
+//			cIdioma.setMaxAge(60*10); //TODO poner que no expire nunca			
+//			response.addCookie(cIdioma);
+			
+			
+			// validar
+			Agente a = new Agente();
+			a.setPlaca(placa);
+			
+			//TODO configurar contraseñas
+//			a.setPassword(pass);
+			
+			Set<ConstraintViolation<Agente>> violations = validator.validate(a);
+			
+			
+			if ( violations.size() > 0) {			// validacion NO PASA
+				
+				 String errores = "<ul>"; 
+				 for (ConstraintViolation<Agente> violation : violations) {					 	
+					 errores += String.format("<li> %s : %s </li>" , violation.getPropertyPath(), violation.getMessage() );					
+				 }
+				 errores += "</ul>";				 
+				 request.setAttribute("mensaje", errores);				
+				
+			}else {                                // validacion OK
+			
+				a = daoAgente.login(placa, pass);
+				
+				if ( a == null ) {
+					
+					request.setAttribute("mensaje", "Login incorrecto");
+				}else {
+					
+					
+					session.setMaxInactiveInterval(60*5);
+					// asociamos un listener para listar usuarios @see UsuariosListener
+					session.setAttribute("agente", a);
+					session.setAttribute("idioma", idioma );
+					redirect = true;					
+					LOG.debug("guardamos en session usuario e idioma");			
+				}
+			}	
+				
+			
+		}catch (Exception e) {			
+			LOG.error(e);
+		}finally {
+			
+			if(redirect) {				
+				response.sendRedirect( request.getContextPath() + "/principal.jsp");
+			}else {
+				request.getRequestDispatcher(view).forward(request, response);
+			}
+		}
+			
+		
+		
 	}
 
 }

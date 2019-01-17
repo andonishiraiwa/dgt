@@ -1,40 +1,51 @@
-<%@ include file="../includes/header.jsp"%>
-<%@ include file="../includes/navbar.jsp"%>
-
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 
-<body>
+<!doctype html>
 
-	<main role="main" class="container">
-	<div class="jumbotron">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+   
+    <title>Identifiquese</title>
 
-		<ul class="navbar-nav float-right">
-			<li><span class=" badge-lg badge-light mr-3 text-success h5">${agenteLogueado.nombre}<img
-					src="images/placa.png" /> <!-- agente -->
-			</span></li>
-		</ul>
-		<%-- <h3>${agenteLogueado.nombre}</h3> --%>
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-		<br /> <br />
+    <!-- Custom styles for this template -->
+    <link href="css/login.css" rel="stylesheet">
+  </head>
 
+  <body class="text-center"> 	
+  
+  	  
+  	
+  
+    <form novalidate action="login" method="post" class="form-signin">    
+    
+     <c:if test="${not empty mensaje}">	  
+		 <div class="alert alert-danger alert-dismissible fade show" role="alert">
+		  ${mensaje}			 
+		 </div>	 	
+	  </c:if>   
+      
+      <label for="placa" class="sr-only">Correo Electronico:</label>
+      <input type="email" name="placa" class="form-control" value="" placeholder="nº de placa" required autofocus>
+      
+      <label for="pass" class="sr-only">Contraseña</label>
+      <input type="password" name="pass" class="form-control" value="12345678" placeholder="minimo 6 caracteres" required>
+      
+      
+      
+      <button class="btn btn-lg btn-primary btn-block" type="submit">
+      Acceder
+      </button>
+      
+    </form>
 
-
-
-
-		<h1>Bienvenido</h1>
-		<br /> <br /> <a href="form.jsp"
-			class="btn-lg btn-danger btn-block text-center">Multar</a> <br /> <br />
-		<a href="multa?op=1" class="btn-lg btn-success btn-block text-center">Ver
-			multas</a>
-			
-			<a href="multa?op=6" class="btn-lg btn-success btn-block text-center">Ver
-			multas anuladas</a>
-			
-			
-	</div>
-	</main>
-
-</body>
+    
+  </body>
 </html>
