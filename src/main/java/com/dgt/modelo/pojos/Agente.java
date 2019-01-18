@@ -7,6 +7,7 @@ public class Agente {
 	private String placa;
 	private String password;
 	
+	
 	private Departamento departamento;
 
 	public Agente() {

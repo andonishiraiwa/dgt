@@ -26,6 +26,7 @@
 			<th scope="col"></th>
 			<th scope="col">Id</th>
 			<th scope="col">Matricula</th>
+			<th scope="col">Agente</th>
 			<th scope="col">Fecha de alta</th>
 			<th scope="col">Fecha de baja</th>
 			<th scope="col">Importe</th>
@@ -47,6 +48,7 @@
 				<th></th>
 				<td>${ma.id}</td>
 				<td>${ma.coche.matricula}</td>
+				<td>${ma.agente.nombre}</td>
 				<td scope="row"><fmt:formatDate value="${ma.fecha_alta}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
 				<td scope="row"><fmt:formatDate value="${ma.fecha_baja}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
 				<td scope="row">${ma.importe}</td>
@@ -67,6 +69,7 @@
 			<th scope="col"></th>
 			<th scope="col">Id</th>
 			<th scope="col">Matricula</th>
+			<th scope="col">Agente</th>
 			<th scope="col">Fecha de alta</th>
 			<th scope="col">Fecha de baja</th>
 			<th scope="col">Importe</th>
