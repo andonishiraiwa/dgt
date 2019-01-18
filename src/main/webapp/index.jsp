@@ -32,8 +32,8 @@
 		 </div>	 	
 	  </c:if>   
       
-      <label for="placa" class="sr-only">Correo Electronico:</label>
-      <input type="email" name="placa" class="form-control" value="1578" placeholder="nº de placa" required autofocus>
+      <label for="placa" class="sr-only">Nº de Placa:</label>
+      <input type="text" name="placa" class="form-control" value="1578" placeholder="nº de placa" required autofocus>
       
       <label for="pass" class="sr-only">Contraseña</label>
       <input type="password" name="pass" class="form-control" value="1578MJ" placeholder="minimo 6 caracteres" required>

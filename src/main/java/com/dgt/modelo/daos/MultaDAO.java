@@ -19,18 +19,29 @@ public class MultaDAO {
 	private static MultaDAO INSTANCE = null;
 
 	private static final String SQL_GETBYIDMULTA = "SELECT m.id AS 'id_multa', a.id AS 'id_agente', c.id AS 'id_coche', importe, concepto, km, modelo, fecha_alta, fecha_modificacion, fecha_baja, a.nombre FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id AND m.id = ?;";
-	
-	//private static final String SQL_GETMULTA = "SELECT m.id , a.id AS 'id_agente', c.id AS 'id_coche', placa, matricula, importe, concepto, km, modelo, fecha_alta, fecha_modificacion, fecha_baja, a.nombre as 'agente' FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id AND fecha_baja IS NULL ORDER BY m.id DESC LIMIT 1000;";
-	private static final String SQL_GETMULTA = "{call pa_multa_getAll(?)}";											
-	
-	//private static final String SQL_GETMULTA_ANULADA = "SELECT m.id , a.id AS 'id_agente', c.id AS 'id_coche', placa, matricula, importe, concepto, km, modelo, fecha_alta, fecha_modificacion, fecha_baja, a.nombre as 'agente' FROM dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND m.id_coche = c.id AND fecha_baja IS NOT NULL ORDER BY m.id DESC LIMIT 1000;";
+
+	// private static final String SQL_GETMULTA = "SELECT m.id , a.id AS
+	// 'id_agente', c.id AS 'id_coche', placa, matricula, importe, concepto, km,
+	// modelo, fecha_alta, fecha_modificacion, fecha_baja, a.nombre as 'agente' FROM
+	// dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND
+	// m.id_coche = c.id AND fecha_baja IS NULL ORDER BY m.id DESC LIMIT 1000;";
+	private static final String SQL_GETMULTA = "{call pa_multa_getAll(?)}";
+
+	// private static final String SQL_GETMULTA_ANULADA = "SELECT m.id , a.id AS
+	// 'id_agente', c.id AS 'id_coche', placa, matricula, importe, concepto, km,
+	// modelo, fecha_alta, fecha_modificacion, fecha_baja, a.nombre as 'agente' FROM
+	// dgt.multa AS m, dgt.agente AS a, dgt.coche AS c WHERE m.id_agente = a.id AND
+	// m.id_coche = c.id AND fecha_baja IS NOT NULL ORDER BY m.id DESC LIMIT 1000;";
 	private static final String SQL_GETMULTA_ANULADA = "{call pa_multaAnulada_getAll(?)}";
-	
-	//private static final String SQL_INSERTMULTA = "INSERT INTO multa (importe, concepto, id_agente, id_coche) VALUES( ?, ?, ?, ?);";
+
+	// private static final String SQL_INSERTMULTA = "INSERT INTO multa (importe,
+	// concepto, id_agente, id_coche) VALUES( ?, ?, ?, ?);";
 	private static final String SQL_INSERTMULTA = "{call pa_multa_insert(?,?,?,?,?)}";
-	
-	//private static final String SQL_UPDATE = "UPDATE multa SET fecha_baja = CURRENT_TIMESTAMP  WHERE id = ?;";
+
+	// private static final String SQL_UPDATE = "UPDATE multa SET fecha_baja =
+	// CURRENT_TIMESTAMP WHERE id = ?;";
 	private static final String SQL_UPDATE = "{call pa_multa_update(?)}";
+
 	public MultaDAO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -67,18 +78,18 @@ public class MultaDAO {
 
 		ArrayList<Multa> multas = new ArrayList<Multa>();
 
-		
-
 		try (Connection conn = ConnectionManager.getConnection();
-				CallableStatement cs = conn.prepareCall(SQL_GETMULTA);
-				ResultSet rs = cs.executeQuery()) {
+				CallableStatement cs = conn.prepareCall(SQL_GETMULTA);) {
 			cs.setLong(1, id);
-			while (rs.next()) {
-				try {
-					multas.add(rowMapper(rs));
-				} catch (Exception e) {
-					System.out.println("multa no válida");
-					e.printStackTrace();
+			try (ResultSet rs = cs.executeQuery()) {
+
+				while (rs.next()) {
+					try {
+						multas.add(rowMapper(rs));
+					} catch (Exception e) {
+						System.out.println("multa no válida");
+						e.printStackTrace();
+					}
 				}
 			}
 
@@ -88,16 +99,18 @@ public class MultaDAO {
 
 		return multas;
 	}
-	
-	//Andoni
+
+	// Andoni
 	public ArrayList<Multa> getMultaAnulada(long id) {
 
 		ArrayList<Multa> multas = new ArrayList<Multa>();
-
+		
 		try (Connection conn = ConnectionManager.getConnection();
-				CallableStatement cs = conn.prepareCall(SQL_GETMULTA_ANULADA);
-				ResultSet rs = cs.executeQuery()) {
+				CallableStatement cs = conn.prepareCall(SQL_GETMULTA_ANULADA);) {
 			cs.setLong(1, id);
+			try (ResultSet rs = cs.executeQuery()) {
+
+			
 			while (rs.next()) {
 				try {
 					multas.add(rowMapper(rs));
@@ -106,14 +119,13 @@ public class MultaDAO {
 					e.printStackTrace();
 				}
 			}
-
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		return multas;
 	}
-	
 
 	public boolean insert(Multa m) throws SQLException {
 
@@ -159,17 +171,16 @@ public class MultaDAO {
 		m.setId(rs.getLong("id"));
 		m.setImporte(rs.getFloat("importe"));
 		m.setConcepto(rs.getString("concepto"));
-		
-		//convertir fecha TimeStamp a java.util.Date	
-		
+
+		// convertir fecha TimeStamp a java.util.Date
+
 		m.setFecha_alta(rs.getTimestamp("fecha_alta"));
-		
-		
-		//m.setFecha_alta(rs.getDate("fecha_alta"));
+
+		// m.setFecha_alta(rs.getDate("fecha_alta"));
 		m.setFecha_modificacion(rs.getTimestamp("fecha_modificacion"));
-		
-		//Timestamp timestampbaja = rs.getTimestamp("fecha_baja");
-	//	m.setFecha_baja(new java.util.Date(timestampbaja.getTime()));
+
+		// Timestamp timestampbaja = rs.getTimestamp("fecha_baja");
+		// m.setFecha_baja(new java.util.Date(timestampbaja.getTime()));
 		m.setFecha_baja(rs.getTimestamp("fecha_baja"));
 
 		Agente a = new Agente();
