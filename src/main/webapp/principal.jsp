@@ -11,7 +11,7 @@
 	<div class="jumbotron">
 
 		<ul class="navbar-nav float-right">
-			<li><span class=" badge-lg badge-light mr-3 text-success h5">${sessionScope.agenteLogueado.nombre}<a class="navbar-brand" href="multa?op=7"><img
+			<li><span class=" badge-lg badge-light mr-3 text-success h5">${sessionScope.agenteLogueado.nombre}<a class="navbar-brand" href="/objetivo"><img
 					src="images/placa.png" /></a> <!-- agente -->
 			</span></li>
 		</ul>

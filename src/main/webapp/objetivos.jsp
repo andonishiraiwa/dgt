@@ -13,12 +13,17 @@
 		<br>
 		<hr>
 		<table id="actual" class="table">
+		
+		<p>${objetivos}</p>
+		
 			<tr>
-				<td>Mes</td>
-				<td>0 / 1.000</td>
+				<th>Mes</th>
+				
+				<td>000/ 1.000</td>
+				
 			</tr>
 			<tr>
-				<td>Año</td>
+				<th>Año</th>
 				<td>0 / 12.000</td>
 			</tr>
 		</table>
@@ -34,7 +39,7 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td></td>
+				<th>Total</th>
 				<td></td>
 			</tr>
 		</tbody>

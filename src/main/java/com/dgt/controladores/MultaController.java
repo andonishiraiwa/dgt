@@ -47,7 +47,7 @@ public class MultaController extends HttpServlet {
 	private static final String VIEW_FORM = "form.jsp";
 	private static final String VIEW_REDACTAR = "redactar.jsp";
 	private static final String VIEW_MPPAL = "index.jsp";
-	private static final String VIEW_OBJET = "objetivos.jsp";
+	//private static final String VIEW_OBJET = "objetivos.jsp";
 	private String vista;
 
 	public static final String OP_LISTAR = "1";
@@ -59,7 +59,7 @@ public class MultaController extends HttpServlet {
 	// Andoni
 	public static final String OP_LISTAR_ANULADAS = "6";
 	
-	public static final String OP_ESTADISTICAS = "7";
+	//public static final String OP_ESTADISTICAS = "7";
 	
 
 	private Alerta alerta;
@@ -95,7 +95,7 @@ public class MultaController extends HttpServlet {
 
 	private static CocheDAO daoCoche = null;
 	
-	private static ObjetivoDAO daoObjetivo = null;
+	//private static ObjetivoDAO daoObjetivo = null;
 
 	@Override
 	public void init(ServletConfig config) throws ServletException {
@@ -104,7 +104,7 @@ public class MultaController extends HttpServlet {
 
 		daoCoche = CocheDAO.getInstance();
 		
-		daoObjetivo = ObjetivoDAO.getInstance();
+		//daoObjetivo = ObjetivoDAO.getInstance();
 
 		factory = Validation.buildDefaultValidatorFactory();
 		validator = factory.getValidator();
@@ -163,10 +163,7 @@ public class MultaController extends HttpServlet {
 			case OP_LISTAR_ANULADAS:
 				listarAnuladas(request);
 				break;
-				
-			case OP_ESTADISTICAS:
-				estadisticas(request);
-				break;
+			
 			default:
 				mensaje = new Alerta(Alerta.TIPO_DANGER, "Operación incorrecta");
 				vista = VIEW_MPPAL;
@@ -309,12 +306,7 @@ public class MultaController extends HttpServlet {
 
 	}
 	
-	private void estadisticas(HttpServletRequest request) {
-
-		request.setAttribute("objetivos", daoObjetivo.getMonth() );
-
-		vista = VIEW_OBJET;
-	}
+	
 
 	private void getParametros(HttpServletRequest request) {
 
