@@ -1,5 +1,45 @@
 <%@ include file="../includes/header.jsp"%>
 <%@ include file="../includes/navbar.jsp"%>
+<script>
+         
+       var label;
+       var concepto; //textarea
+       
+       const MAX_CARACTERES = 250; 
+       const MIN_CARACTERES = 5;
+       
+       window.addEventListener('load', function() {
+           
+           console.log('el DOM cargado y listo');
+           label   = document.getElementById('limiteCaracteres');
+           concepto = document.getElementById('concepto');
+            
+           label.textContent = `(0/${MAX_CARACTERES})`;
+           label.style.color = 'red';
+           
+           concepto.addEventListener("keyup", function(){
+               
+               var caracteres = concepto.value.length;                             
+               
+               if( caracteres < MIN_CARACTERES ){
+                    label.style.color = 'red';   
+                    
+               }else if ( caracteres  > MAX_CARACTERES ){
+                   concepto.value = concepto.value.substr(0,MAX_CARACTERES);
+                   
+               }else{
+                    label.style.color = 'green';
+               }
+               
+               caracteres = concepto.value.length;
+               label.textContent = `(${caracteres}/${MAX_CARACTERES})`;
+               
+           });
+           
+           
+       });
+    
+   </script>
 <main role="main" class="container">
 <div class="jumbotron">
 
@@ -32,7 +72,12 @@
 		
 		<input type="text" name="importe" class="form-control"placeholder="cantidad en euros" required autofocus> 
 		<br />
-		 <label for="concepto" class="h5">Concepto</label>
+		  <label for="concepto">Concepto  <span id="limiteCaracteres">(0/5)</span></label>
+   <br>
+   <textarea id="concepto" cols="40" rows="10"></textarea>
+
+
+   
 		  <br />
 		<textarea name="concepto" class="form-control" placeholder="indique el asunto de la multa" required autofocus></textarea>
 		<input type="hidden" name="idcoche" value="${coche.id}"> 

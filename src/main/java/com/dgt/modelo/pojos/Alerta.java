@@ -12,8 +12,8 @@ public class Alerta {
 
 	public Alerta() {
 		super();
-		this.texto = "Error Inexperado";
-		this.tipo = TIPO_DANGER;
+//		this.texto = "Error Inexperado";
+//		this.tipo = TIPO_DANGER;
 	}
 
 	public Alerta(String tipo, String texto) {
