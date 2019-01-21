@@ -46,6 +46,25 @@ LOCK TABLES `agente` WRITE;
 INSERT INTO `agente` VALUES (1,'Majonei',1578,37,'1578MJ'),(2,'Jony Walker',3685,36,'3685JW'),(3,'Monk',3369,38,'3369MN'),(4,'Takelberry',8841,39,'8841TK'),(5,'Tontini',6661,39,'6661TN');
 /*!40000 ALTER TABLE `agente` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `tbi_agente_check` BEFORE INSERT ON `agente` FOR EACH ROW BEGIN
+	SET NEW.nombre = TRIM(NEW.nombre);
+    
+    SET NEW.`password` = TRIM(NEW.`password`);
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `coche`
@@ -73,6 +92,25 @@ LOCK TABLES `coche` WRITE;
 INSERT INTO `coche` VALUES (1,'3548MKZ','toyota yaris',500),(2,'9605EFH','fiat multipla',800),(3,'5674MDB','GTR',1800),(4,'BI0020AZ','flagoneta',47500);
 /*!40000 ALTER TABLE `coche` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `tbi_coche_check` BEFORE INSERT ON `coche` FOR EACH ROW BEGIN
+	SET NEW.matricula = TRIM(NEW.matricula);
+    
+    SET NEW.modelo = TRIM(NEW.modelo);
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `departamento`
@@ -98,6 +136,23 @@ LOCK TABLES `departamento` WRITE;
 INSERT INTO `departamento` VALUES (36,'Alcoholemia'),(38,'Fealdad'),(33,'Ingeniería'),(35,'Mercadeo'),(39,'Oficina'),(34,'Producción'),(37,'Velocidad'),(31,'Ventas');
 /*!40000 ALTER TABLE `departamento` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `tbi_departamento_check` BEFORE INSERT ON `departamento` FOR EACH ROW BEGIN
+	SET NEW.nombre = TRIM(NEW.nombre);
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `multa`
@@ -132,6 +187,28 @@ LOCK TABLES `multa` WRITE;
 INSERT INTO `multa` VALUES (1,200,'por feo','2019-01-07 10:37:05','2019-01-11 13:06:02','2019-01-11 13:06:02',2,3),(3,500,'exceso velocidad 240km/h','2019-01-07 10:39:38','2019-01-11 13:06:02','2019-01-11 13:06:02',4,1),(4,800,'por empinar el codo 8.0','2019-01-07 10:41:59','2019-01-11 13:06:02','2019-01-11 13:06:02',1,2),(5,700,'por empinar el codo 8.0','2018-12-31 22:41:59','2019-01-11 13:06:02','2019-01-11 13:06:02',1,2),(6,50,'otra multa','2019-01-07 12:40:44','2019-01-11 13:06:02','2019-01-11 13:06:02',1,1),(7,300,'correr mucho','2019-01-07 12:41:02','2019-01-11 13:06:02','2019-01-11 13:06:02',4,1),(8,400,'muy borracho','2019-01-08 13:18:42','2019-01-11 13:06:02','2019-01-11 13:06:02',3,4),(9,100,'velocidad','2019-01-14 09:57:02','2019-01-14 09:57:02','2019-01-14 09:57:02',4,4),(10,150,'velocidad','2019-01-14 09:58:27',NULL,'2019-01-15 13:50:22',4,4),(11,55,'rapido','2019-01-14 11:57:01',NULL,'2019-01-14 12:16:03',1,4),(12,50,'demasiado lento','2019-01-14 12:03:28',NULL,'2019-01-15 13:36:07',4,4),(13,70,'too fast','2019-01-16 09:05:28',NULL,'2019-01-16 12:00:42',4,4),(14,1000,'puesto de todo','2019-01-16 09:07:25',NULL,'2019-01-16 12:03:36',3,4),(15,66,'sin cinto','2019-01-16 09:36:37',NULL,'2019-01-16 12:03:31',1,4),(16,99,'movil','2019-01-16 10:31:39',NULL,'2019-01-16 12:00:07',4,4),(17,33,'demasiado lento','2019-01-16 12:04:09',NULL,'2019-01-16 12:27:48',1,4),(18,300,'Haciendo eses','2019-01-16 12:04:38',NULL,'2019-01-16 12:06:45',4,4),(19,150,'muy rapido','2019-01-16 12:08:26',NULL,'2019-01-16 12:08:36',1,4),(20,222,'por alguna razon','2019-01-16 12:20:04',NULL,'2019-01-16 12:27:31',4,4),(21,222,'otra mas al mismo','2019-01-16 12:28:37',NULL,NULL,4,4),(22,44,'arrojar basura','2019-01-16 12:34:10',NULL,'2019-01-16 12:34:18',1,4),(23,25,'correr mal','2019-01-17 10:39:01',NULL,'2019-01-17 10:41:45',4,4),(24,99,'corria mucho ','2019-01-18 09:25:01',NULL,'2019-01-18 09:25:06',4,4),(25,44,'saltarse control','2019-01-18 10:13:50',NULL,NULL,4,4),(26,20,'no lleva cinturon','2019-01-18 10:50:05',NULL,NULL,3,4),(27,1150,'por feo','2018-12-31 22:41:59',NULL,NULL,2,4),(29,0,'kjhj','2019-01-21 10:06:33',NULL,NULL,2,3);
 /*!40000 ALTER TABLE `multa` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `tbi_multa_check` BEFORE INSERT ON `multa` FOR EACH ROW BEGIN
+	if NEW.importe < 0 THEN
+    SET NEW.importe = 0;
+    END if;
+    
+    SET NEW.concepto = TRIM(NEW.concepto);
+
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Dumping routines for database 'dgt'
@@ -314,4 +391,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-01-21 10:19:05
+-- Dump completed on 2019-01-21 10:22:00
