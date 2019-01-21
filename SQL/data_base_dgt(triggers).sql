@@ -120,7 +120,7 @@ CREATE TABLE `multa` (
   KEY `FK_has_agente_idx` (`id_agente`),
   CONSTRAINT `FK_has_agente` FOREIGN KEY (`id_agente`) REFERENCES `agente` (`id`),
   CONSTRAINT `FK_has_coche` FOREIGN KEY (`id_coche`) REFERENCES `coche` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -129,13 +129,51 @@ CREATE TABLE `multa` (
 
 LOCK TABLES `multa` WRITE;
 /*!40000 ALTER TABLE `multa` DISABLE KEYS */;
-INSERT INTO `multa` VALUES (1,200,'por feo','2019-01-07 10:37:05','2019-01-11 13:06:02','2019-01-11 13:06:02',2,3),(3,500,'exceso velocidad 240km/h','2019-01-07 10:39:38','2019-01-11 13:06:02','2019-01-11 13:06:02',4,1),(4,800,'por empinar el codo 8.0','2019-01-07 10:41:59','2019-01-11 13:06:02','2019-01-11 13:06:02',1,2),(5,700,'por empinar el codo 8.0','2018-12-31 22:41:59','2019-01-11 13:06:02','2019-01-11 13:06:02',1,2),(6,50,'otra multa','2019-01-07 12:40:44','2019-01-11 13:06:02','2019-01-11 13:06:02',1,1),(7,300,'correr mucho','2019-01-07 12:41:02','2019-01-11 13:06:02','2019-01-11 13:06:02',4,1),(8,400,'muy borracho','2019-01-08 13:18:42','2019-01-11 13:06:02','2019-01-11 13:06:02',3,4),(9,100,'velocidad','2019-01-14 09:57:02','2019-01-14 09:57:02','2019-01-14 09:57:02',4,4),(10,150,'velocidad','2019-01-14 09:58:27',NULL,'2019-01-15 13:50:22',4,4),(11,55,'rapido','2019-01-14 11:57:01',NULL,'2019-01-14 12:16:03',1,4),(12,50,'demasiado lento','2019-01-14 12:03:28',NULL,'2019-01-15 13:36:07',4,4),(13,70,'too fast','2019-01-16 09:05:28',NULL,'2019-01-16 12:00:42',4,4),(14,1000,'puesto de todo','2019-01-16 09:07:25',NULL,'2019-01-16 12:03:36',3,4),(15,66,'sin cinto','2019-01-16 09:36:37',NULL,'2019-01-16 12:03:31',1,4),(16,99,'movil','2019-01-16 10:31:39',NULL,'2019-01-16 12:00:07',4,4),(17,33,'demasiado lento','2019-01-16 12:04:09',NULL,'2019-01-16 12:27:48',1,4),(18,300,'Haciendo eses','2019-01-16 12:04:38',NULL,'2019-01-16 12:06:45',4,4),(19,150,'muy rapido','2019-01-16 12:08:26',NULL,'2019-01-16 12:08:36',1,4),(20,222,'por alguna razon','2019-01-16 12:20:04',NULL,'2019-01-16 12:27:31',4,4),(21,222,'otra mas al mismo','2019-01-16 12:28:37',NULL,NULL,4,4),(22,44,'arrojar basura','2019-01-16 12:34:10',NULL,'2019-01-16 12:34:18',1,4),(23,25,'correr mal','2019-01-17 10:39:01',NULL,'2019-01-17 10:41:45',4,4);
+INSERT INTO `multa` VALUES (1,200,'por feo','2019-01-07 10:37:05','2019-01-11 13:06:02','2019-01-11 13:06:02',2,3),(3,500,'exceso velocidad 240km/h','2019-01-07 10:39:38','2019-01-11 13:06:02','2019-01-11 13:06:02',4,1),(4,800,'por empinar el codo 8.0','2019-01-07 10:41:59','2019-01-11 13:06:02','2019-01-11 13:06:02',1,2),(5,700,'por empinar el codo 8.0','2018-12-31 22:41:59','2019-01-11 13:06:02','2019-01-11 13:06:02',1,2),(6,50,'otra multa','2019-01-07 12:40:44','2019-01-11 13:06:02','2019-01-11 13:06:02',1,1),(7,300,'correr mucho','2019-01-07 12:41:02','2019-01-11 13:06:02','2019-01-11 13:06:02',4,1),(8,400,'muy borracho','2019-01-08 13:18:42','2019-01-11 13:06:02','2019-01-11 13:06:02',3,4),(9,100,'velocidad','2019-01-14 09:57:02','2019-01-14 09:57:02','2019-01-14 09:57:02',4,4),(10,150,'velocidad','2019-01-14 09:58:27',NULL,'2019-01-15 13:50:22',4,4),(11,55,'rapido','2019-01-14 11:57:01',NULL,'2019-01-14 12:16:03',1,4),(12,50,'demasiado lento','2019-01-14 12:03:28',NULL,'2019-01-15 13:36:07',4,4),(13,70,'too fast','2019-01-16 09:05:28',NULL,'2019-01-16 12:00:42',4,4),(14,1000,'puesto de todo','2019-01-16 09:07:25',NULL,'2019-01-16 12:03:36',3,4),(15,66,'sin cinto','2019-01-16 09:36:37',NULL,'2019-01-16 12:03:31',1,4),(16,99,'movil','2019-01-16 10:31:39',NULL,'2019-01-16 12:00:07',4,4),(17,33,'demasiado lento','2019-01-16 12:04:09',NULL,'2019-01-16 12:27:48',1,4),(18,300,'Haciendo eses','2019-01-16 12:04:38',NULL,'2019-01-16 12:06:45',4,4),(19,150,'muy rapido','2019-01-16 12:08:26',NULL,'2019-01-16 12:08:36',1,4),(20,222,'por alguna razon','2019-01-16 12:20:04',NULL,'2019-01-16 12:27:31',4,4),(21,222,'otra mas al mismo','2019-01-16 12:28:37',NULL,NULL,4,4),(22,44,'arrojar basura','2019-01-16 12:34:10',NULL,'2019-01-16 12:34:18',1,4),(23,25,'correr mal','2019-01-17 10:39:01',NULL,'2019-01-17 10:41:45',4,4),(24,99,'corria mucho ','2019-01-18 09:25:01',NULL,'2019-01-18 09:25:06',4,4),(25,44,'saltarse control','2019-01-18 10:13:50',NULL,NULL,4,4),(26,20,'no lleva cinturon','2019-01-18 10:50:05',NULL,NULL,3,4),(27,1150,'por feo','2018-12-31 22:41:59',NULL,NULL,2,4),(29,0,'kjhj','2019-01-21 10:06:33',NULL,NULL,2,3);
 /*!40000 ALTER TABLE `multa` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Dumping routines for database 'dgt'
 --
+/*!50003 DROP FUNCTION IF EXISTS `nombre_mes` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` FUNCTION `nombre_mes`(numeroMes INT(2) ) RETURNS varchar(20) CHARSET utf8
+    READS SQL DATA
+    DETERMINISTIC
+BEGIN
+	DECLARE mes VARCHAR(20) DEFAULT 'No existe';
+    CASE numeroMes
+    WHEN 1 THEN SET mes = 'enero';
+    WHEN 2 THEN SET mes = 'febrero';
+    WHEN 3 THEN SET mes = 'marzo';
+    WHEN 4 THEN SET mes = 'abril';
+    WHEN 5 THEN SET mes = 'mayo';
+    WHEN 6 THEN SET mes = 'junio';
+    WHEN 7 THEN SET mes = 'julio';
+    WHEN 8 THEN SET mes = 'agorto';
+    WHEN 9 THEN SET mes = 'septiembre';
+    WHEN 10 THEN SET mes = 'octubre';
+    WHEN 11 THEN SET mes = 'noviembre';
+    WHEN 12 THEN SET mes = 'diciembre';
+    ELSE 
+    SET mes = CONCAT(numeroMes, 'No existe');
+	END CASE;
+RETURN mes;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `pa_agente_getById` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -276,4 +314,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-01-17 12:45:56
+-- Dump completed on 2019-01-21 10:19:05
