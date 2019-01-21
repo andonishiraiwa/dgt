@@ -16,7 +16,7 @@ public class ObjetivoDAO {
 	private static ObjetivoDAO INSTANCE = null;
 	
 	private static final String SQL_YEAR = "SELECT  a.id AS id_agente, COUNT(*), SUM(m.importe), YEAR(fecha_alta) AS `year`  FROM multa AS m, agente AS a WHERE a.id = m.id_agente AND fecha_baja IS NULL AND YEAR(fecha_alta) = ? AND a.id = ?;";
-	private static final String SQL_MONTH = "SELECT  a.id AS id_agente, a.nombre AS agente, COUNT(*), SUM(m.importe), YEAR(fecha_alta) AS `year`, MONTH(fecha_alta) AS mes, nombre_mes(MONTH(fecha_alta)) AS nombre_mes FROM multa AS m, agente AS a WHERE a.id = m.id_agente AND fecha_baja IS NULL AND YEAR(fecha_alta) = 2019 AND MONTH(fecha_alta) = 1 AND a.id = 4;";
+	private static final String SQL_MONTH = "SELECT  a.id AS id_agente, a.nombre AS agente, COUNT(*) AS numero_multas, SUM(m.importe) AS importe_mes, YEAR(fecha_alta) AS `year`, MONTH(fecha_alta) AS mes, nombre_mes(MONTH(fecha_alta)) AS nombre_mes FROM multa AS m, agente AS a WHERE a.id = m.id_agente AND fecha_baja IS NULL AND YEAR(fecha_alta) = 2019 AND MONTH(fecha_alta) = 1 AND a.id = 4;";
 
 	
 	public synchronized static ObjetivoDAO getInstance() {
@@ -84,6 +84,7 @@ public class ObjetivoDAO {
 		m.setFecha_alta(rs.getTimestamp("fecha_alta"));
 		m.setFecha_modificacion(rs.getTimestamp("fecha_modificacion"));
 		m.setFecha_baja(rs.getTimestamp("fecha_baja"));
+		
 
 		Agente a = new Agente();
 		a.setId(rs.getLong("id_agente"));

@@ -37,7 +37,11 @@ public class ObjetivoController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		doPost(request, response);
+		
+		request.setAttribute("objetivos", daoObjetivo.getMonth());
+		vista = VIEW_OBJET;
+		request.getRequestDispatcher(vista).forward(request, response);
+		
 	}
 
 	/**
@@ -46,9 +50,14 @@ public class ObjetivoController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		doGet(request, response);
 	}
 
-	
+	/*private void estadisticas(HttpServletRequest request) {
+
+		request.setAttribute("objetivos", daoObjetivo.getMonth());
+
+		vista = VIEW_OBJET;
+	}*/
 
 }

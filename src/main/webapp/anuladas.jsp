@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link rel="stylesheet" type="text/css" href="mystyle.css">
-<main role="main" class="container"> <a href="index.jsp"
+<main role="main" class="container"> <a href="principal.jsp"
 	class="btn btn-info ">Atras</a>
 
 <ul class="navbar-nav float-right">
