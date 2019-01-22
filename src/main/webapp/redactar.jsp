@@ -1,45 +1,6 @@
 <%@ include file="../includes/header.jsp"%>
 <%@ include file="../includes/navbar.jsp"%>
-<script>
-         
-       var label;
-       var concepto; //textarea
-       
-       const MAX_CARACTERES = 250; 
-       const MIN_CARACTERES = 5;
-       
-       window.addEventListener('load', function() {
-           
-           console.log('el DOM cargado y listo');
-           label   = document.getElementById('limiteCaracteres');
-           concepto = document.getElementById('concepto');
-            
-           label.textContent = `(0/${MAX_CARACTERES})`;
-           label.style.color = 'red';
-           
-           concepto.addEventListener("keyup", function(){
-               
-               var caracteres = concepto.value.length;                             
-               
-               if( caracteres < MIN_CARACTERES ){
-                    label.style.color = 'red';   
-                    
-               }else if ( caracteres  > MAX_CARACTERES ){
-                   concepto.value = concepto.value.substr(0,MAX_CARACTERES);
-                   
-               }else{
-                    label.style.color = 'green';
-               }
-               
-               caracteres = concepto.value.length;
-               label.textContent = `(${caracteres}/${MAX_CARACTERES})`;
-               
-           });
-           
-           
-       });
-    
-   </script>
+
 <main role="main" class="container">
 <div class="jumbotron">
 
@@ -60,37 +21,35 @@
 	<br />
 	<form novalidate action="multa" method="post" class="form-signin">
 
-		<c:if test="${not empty alerta}">
-			<div class="alert alert-danger alert-dismissible fade show"
-				role="alert">${alerta}</div>
-		</c:if>
+		
+<c:if test="${not empty mensaje}">	  
+	<div class="alert alert-danger alert-dismissible fade show" role="alert">
+	 ${mensaje.texto}			 
+	</div>	 	
+</c:if>
 
 
 	<!-- TODO contador de palabras -->
 
-		<label for="importe" class="h5">Importe</label><br /> 
-		
-		<input type="text" name="importe" class="form-control"placeholder="cantidad en euros" required autofocus> 
-		<br />
-		  <label for="concepto">Concepto  <span id="limiteCaracteres">(0/5)</span></label>
-   <br>
-   <textarea id="concepto" cols="40" rows="10"></textarea>
-
-
-   
-		  <br />
-		<textarea name="concepto" class="form-control" placeholder="indique el asunto de la multa" required autofocus></textarea>
+	<div class="col">
+			<label>Importe:</label>
+			<input type="text" class="form-control" name="importe" placeholder="Importe">
+			
+		</div>
+		<div class="col">
+			<label for="concepto">Concepto  <span id="contadorLabel">(0/250)</span></label>
+			<textarea id="concepto" class="form-control" name="concepto" placeholder="Concepto" rows="3"></textarea>
+		</div>
 		<input type="hidden" name="idcoche" value="${coche.id}"> 
 		<input type="hidden" name="idagente" value="${agente.id}">
-		<%-- 		<input type="hidden" name="idmulta" value="${(op == '1') ? multa.id : 0}"> --%>
 		
-		<br /> <br /> 
-		
+		<br/><br/>
 		<input type="hidden" name="op" value="3">
-		 <input	type="submit" value="Registrar">
-		 
-		  <br /> <br />
+		<input type="submit" value="Registrar">
 	</form>
+	
+	
 </div>
 
 </main>
+<%@ include file="../includes/footer.jsp"  %> 

@@ -21,7 +21,41 @@
 	    	
 	    	);
 		} );
-	
+		</script>
+		<script>
+		
+		  let label;
+		    let concepto; //textarea
+		    
+		    const MAX_CARARCTERES = 250; // TODO cambiar por 250 despues de las pruebas
+		    const MIN_CARARCTERES = 10;
+		    
+		    window.addEventListener('load', function() {
+		        
+		        console.log('el DOM cargado y listo');
+		        label   = document.getElementById('contadorLabel');
+		        concepto = document.getElementById('concepto');
+		         
+		        label.textContent = `(0/` + MAX_CARARCTERES + `)`;
+		        label.style.color = 'red';
+		        
+		        concepto.addEventListener("keyup", function(){
+		            
+		            let caracteres = concepto.value.length;                             
+		            
+		            if( caracteres < MIN_CARARCTERES ){
+		                 label.style.color = 'red';   
+		            }else if ( caracteres  > MAX_CARARCTERES ){
+		                concepto.value = concepto.value.substr(0,MAX_CARARCTERES);
+		            }else{
+		                 label.style.color = 'green';
+		            }
+		            
+		            caracteres = concepto.value.length;
+		            label.textContent = `(` + caracteres + `/` + MAX_CARARCTERES + `)`;
+		        });
+		    });
+		
 	</script>
 	
   </body>
