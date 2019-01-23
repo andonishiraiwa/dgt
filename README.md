@@ -11,7 +11,7 @@ App para la gestion de multas para uso de Agente de tráfico.
 
 
 ## Desarollo
-En esta app se ha desarollado en un proyecto **Maven 3.1** con la tecnología de **Java Enterprise Edition 1.8** empleado tanto para definir los controladores que manejarán las acciones del usuario como la vista mediante ficheros **JSP** para mostrar los resultados con un formato correcto.
+En esta app se ha desarrollado en un proyecto **Maven 3.1** con la tecnología de ** ** y Java en su versión ** jdk 1.8** empleado tanto para definir los controladores que manejarán las acciones del usuario como la vista mediante ficheros **JSP** para mostrar los resultados con un formato correcto.
 
 ### Bases de Datos
 
